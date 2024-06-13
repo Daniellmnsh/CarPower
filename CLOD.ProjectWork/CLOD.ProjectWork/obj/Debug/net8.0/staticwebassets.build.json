@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GBbqYRg0cmy+M8oDNsoY5Xzo7e5x6JEfmwKQotN88l4=",
+  "Hash": "+/J3bccF2l9200l5mYNlqXOfHm9SJz8Nf9StPtrd5rA=",
   "Source": "CLOD.ProjectWork",
   "BasePath": "_content/CLOD.ProjectWork",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "CLOD.ProjectWork\\wwwroot",
       "Source": "CLOD.ProjectWork",
-      "ContentRoot": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CLOD.ProjectWork.styles.css",
+      "Identity": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CLOD.ProjectWork.styles.css",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "CLOD.ProjectWork.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CLOD.ProjectWork.styles.css"
+      "OriginalItemSpec": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CLOD.ProjectWork.styles.css"
     },
     {
-      "Identity": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CLOD.ProjectWork.bundle.scp.css",
+      "Identity": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CLOD.ProjectWork.bundle.scp.css",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "CLOD.ProjectWork.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CLOD.ProjectWork.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CLOD.ProjectWork.bundle.scp.css"
     },
     {
-      "Identity": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\app.css",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\favicon.png",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "favicon.png",
       "AssetKind": "All",

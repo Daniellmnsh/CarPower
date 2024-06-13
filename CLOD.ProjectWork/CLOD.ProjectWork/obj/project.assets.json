@@ -5118,23 +5118,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\edoni\\.nuget\\packages\\": {},
+    "C:\\Users\\andre\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj",
+      "projectUniqueName": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj",
       "projectName": "CLOD.ProjectWork",
-      "projectPath": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj",
-      "packagesPath": "C:\\Users\\edoni\\.nuget\\packages\\",
-      "outputPath": "C:\\DOTTOR\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\",
+      "projectPath": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj",
+      "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\edoni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5143,6 +5143,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
