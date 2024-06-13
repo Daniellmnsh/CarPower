@@ -1,0 +1,53 @@
+﻿@page "/"
+
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims
+@inject NavigationManager Navigation
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<PageTitle>Home</PageTitle>
+
+@if (isAuthenticated)
+{
+    <div>
+        <h2>Welcome, @user.Identity.Name</h2>
+        <div class="wallet">
+            <span>Wallet Balance: @balance</span>
+        </div>
+    </div>
+}
+else
+{
+    <h1>Redirecting...</h1>
+}
+
+@code {
+    private bool isAuthenticated;
+    private ClaimsPrincipal user;
+    private decimal balance;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        user = authState.User;
+
+        if (!user.Identity?.IsAuthenticated ?? true)
+        {
+            // Utente non autenticato, reindirizza alla pagina di login
+            Navigation.NavigateTo("https://localhost:7291/Account/Login", true);
+        }
+        else
+        {
+            // Utente autenticato, carica la pagina normalmente
+            isAuthenticated = true;
+            await LoadUserBalance();
+        }
+    }
+
+    private async Task LoadUserBalance()
+    {
+        // Simulate fetching the user's balance from an API or database
+        await Task.Delay(500); // Simulated delay
+        balance = 123.45M; // Replace with actual logic to get the user's balance
+    }
+}
