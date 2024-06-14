@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Mib4wbrQ5VLJ6dOuCiCqpYJvzOM1RpGEpZjsY+gEdtM=",
+  "Hash": "9GD8t1huTMfXROPeMXiGyQfyTCmnr8wTUUrZjyc0osk=",
   "Source": "CLOD.ProjectWork",
   "BasePath": "_content/CLOD.ProjectWork",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "CLOD.ProjectWork\\wwwroot",
       "Source": "CLOD.ProjectWork",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CLOD.ProjectWork.styles.css",
+      "Identity": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CLOD.ProjectWork.styles.css",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "CLOD.ProjectWork.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CLOD.ProjectWork.styles.css"
+      "OriginalItemSpec": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CLOD.ProjectWork.styles.css"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CLOD.ProjectWork.bundle.scp.css",
+      "Identity": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CLOD.ProjectWork.bundle.scp.css",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "CLOD.ProjectWork.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CLOD.ProjectWork.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CLOD.ProjectWork.bundle.scp.css"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\app.css",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\favicon.png",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\img\\EcoCharge.png",
+      "Identity": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\img\\EcoCharge.png",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\danie\\Desktop\\Daniel-SOLO\\Projetwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "img/EcoCharge.png",
       "AssetKind": "All",

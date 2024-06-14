@@ -46,6 +46,20 @@
     private decimal currentCount = 0;
     private bool showSuccessAlert = false;
 
+    protected override async Task OnInitializedAsync()
+    {
+        AuthenticationStateProvider.AuthenticationStateChanged += OnAuthenticationStateChanged;
+    }
+
+    private void OnAuthenticationStateChanged(Task<AuthenticationState> task)
+    {
+        var authState = task.Result;
+        if (!authState.User.Identity.IsAuthenticated)
+        {
+            Navigation.NavigateTo("/Account/Login", true);
+        }
+    }
+
     private void IncrementCount()
     {
         currentCount += 0.5m;
@@ -104,4 +118,3 @@
         }
     }
 }
-
