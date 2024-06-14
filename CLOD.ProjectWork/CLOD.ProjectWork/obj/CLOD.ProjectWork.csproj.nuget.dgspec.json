@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj": {}
+    "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj": {
+    "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj",
+        "projectUniqueName": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj",
         "projectName": "CLOD.ProjectWork",
-        "projectPath": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj",
-        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andre\\Source\\Repos\\Gruppo4\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\",
+        "projectPath": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj",
+        "packagesPath": "C:\\Users\\edoni\\.nuget\\packages\\",
+        "outputPath": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\edoni\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -65,6 +64,10 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[8.0.3, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
             },
             "System.Security.Claims": {
               "target": "Package",

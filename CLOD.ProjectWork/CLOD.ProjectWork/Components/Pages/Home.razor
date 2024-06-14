@@ -1,7 +1,10 @@
 ﻿@page "/"
 
 @using Microsoft.AspNetCore.Components.Authorization
+@using CLOD.ProjectWork.Data
+@using Microsoft.AspNetCore.Identity
 @using System.Security.Claims
+@inject UserManager<ApplicationUser> UserManager
 @inject NavigationManager Navigation
 @inject AuthenticationStateProvider AuthenticationStateProvider
 
@@ -9,10 +12,27 @@
 
 @if (isAuthenticated)
 {
-    <div>
-        <h2>Welcome, @user.Identity.Name</h2>
-        <div class="wallet">
-            <span>Wallet Balance: @balance</span>
+    <div class="container text-center">
+        <div class="header d-flex align-items-center justify-content-between">
+            <div class="logo-balance">
+                <img src="img/EcoCharge.png" alt="Gruppo 4" class="logo" />
+                <div class="balance">€ <span style="font-size: 2.5rem; font-weight: bold;">@balance</span></div>
+            </div>
+            @* <button class="btn btn-primary recharge-button" @onclick="StartRecharge">Ricarica</button> *@
+            <button class="btn btn-outline-primary recharge-button" @onclick="StartRecharge">Ricarica</button>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="footer mt-auto">
+            <button class="btn btn-primary w-100" @onclick="NavigateToCollegati">COLLEGATI</button>
         </div>
     </div>
 }
@@ -21,26 +41,43 @@ else
     <h1>Redirecting...</h1>
 }
 
+
+
+
+
+
+
+
 @code {
     private bool isAuthenticated;
-    private ClaimsPrincipal user;
+    private ApplicationUser currentUser;
+    private string Name;
+    private string Surname;
     private decimal balance;
 
     protected override async Task OnInitializedAsync()
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        user = authState.User;
+        var user = authState.User;
 
         if (!user.Identity?.IsAuthenticated ?? true)
         {
-            // Utente non autenticato, reindirizza alla pagina di login
-            Navigation.NavigateTo("https://localhost:7291/Account/Login", true);
+            // User not authenticated, redirect to login page
+            Navigation.NavigateTo("/Account/Login", true);
         }
         else
         {
-            // Utente autenticato, carica la pagina normalmente
+            // User authenticated, load the user data
             isAuthenticated = true;
-            await LoadUserBalance();
+            var userId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (userId != null)
+            {
+                currentUser = await UserManager.FindByIdAsync(userId);
+                Name = currentUser?.Name ?? user.Identity.Name;
+                Surname = currentUser?.Surname ?? string.Empty;
+                await LoadUserBalance();
+            }
         }
     }
 
@@ -48,6 +85,16 @@ else
     {
         // Simulate fetching the user's balance from an API or database
         await Task.Delay(500); // Simulated delay
-        balance = 123.45M; // Replace with actual logic to get the user's balance
+        balance = 0.50M; // Replace with actual logic to get the user's balance
+    }
+
+    private void StartRecharge()
+    {
+        Navigation.NavigateTo("/ricarica");
+    }
+
+    private void NavigateToCollegati()
+    {
+        Navigation.NavigateTo("/collegati");
     }
 }

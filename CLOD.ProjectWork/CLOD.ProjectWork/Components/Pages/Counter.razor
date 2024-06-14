@@ -1,18 +1,107 @@
-﻿@page "/counter"
+﻿@page "/ricarica"
+@inject HttpClient HttpClient
+@inject ApplicationDbContext DbContext  // Inject ApplicationDbContext
+@inject NavigationManager Navigation  // Inject NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@using CLOD.ProjectWork.Entities;
+@using CLOD.ProjectWork.Components;
+@using CLOD.ProjectWork.Components.Account;
+@using CLOD.ProjectWork.Data;
+@using Microsoft.AspNetCore.Components.Authorization;
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.EntityFrameworkCore;
+@using System.Linq;
 
-<PageTitle>Counter</PageTitle>
+<PageTitle>Ricarica Saldo</PageTitle>
 
-<h1>Counter</h1>
+<AuthorizeView>
+    <Authorized>
+        <h1 class="text-center">Ricarica Saldo</h1>
 
-<p role="status">Current count: @currentCount</p>
+        <div class="d-flex justify-content-center align-items-center mt-4">
+            <button class="btn btn-primary mx-2" @onclick="DecrementCount">-</button>
+            <input type="number" step="0.5" class="form-control text-center mx-2" style="width: 120px; font-size: 1.5rem;" @bind="currentCount" />
+            <button class="btn btn-primary mx-2" @onclick="IncrementCount">+</button>
+        </div>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+        <div class="text-center mt-3">
+            <button class="btn btn-success" @onclick="RicaricaSaldo">Ricarica Saldo</button>
+        </div>
+
+        @if (showSuccessAlert)
+        {
+            <div class="alert alert-success mt-3" role="alert">
+                Ricarica effettuata con successo
+            </div>
+        }
+    </Authorized>
+    <NotAuthorized>
+        @{
+            Navigation.NavigateTo("/Account/Login", true);
+        }
+    </NotAuthorized>
+</AuthorizeView>
 
 @code {
-    private int currentCount = 0;
+    private decimal currentCount = 0;
+    private bool showSuccessAlert = false;
 
     private void IncrementCount()
     {
-        currentCount++;
+        currentCount += 0.5m;
+    }
+
+    private void DecrementCount()
+    {
+        if (currentCount >= 0.5m)
+        {
+            currentCount -= 0.5m;
+        }
+    }
+
+    private async Task RicaricaSaldo()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            var userId = DbContext.Users
+                .Where(u => u.UserName == user.Identity.Name)
+                .Select(u => u.Id)
+                .FirstOrDefault();
+
+            if (userId != null)
+            {
+                var wallet = new Wallet
+                    {
+                        Money = currentCount,
+                        User = userId,
+                        Id = 0
+                    };
+
+                var response = await HttpClient.PostAsJsonAsync("Wallet", wallet);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    showSuccessAlert = true;
+                    Console.WriteLine("Ricarica effettuata con successo");
+                }
+                else
+                {
+                    Console.WriteLine("Errore durante la ricarica del saldo");
+                }
+            }
+            else
+            {
+                Console.WriteLine("User ID not found");
+            }
+        }
+        else
+        {
+            // Redirect to login page if user is not authenticated
+            Navigation.NavigateTo("/Account/Login", true);
+        }
     }
 }
+

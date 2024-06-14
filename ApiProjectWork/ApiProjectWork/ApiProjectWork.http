@@ -1,0 +1,11 @@
+@ApiProjectWork_HostAddress = http://localhost:5181
+
+GET {{ApiProjectWork_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+POST {{ApiProjectWork_HostAddress}}/Wallet
+Accept: application/json
+
+###

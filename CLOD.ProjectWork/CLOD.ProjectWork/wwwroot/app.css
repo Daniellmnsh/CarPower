@@ -49,3 +49,34 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+
+
+
+/* Aggiorna stili per il logo e il saldo */
+.logo-balance {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    width: 200px; /* Dimensione del logo */
+    height: auto; /* Altezza automatica */
+    align-content: center;
+}
+
+.balance {
+    font-size: 2.5rem; /* Dimensione del testo del saldo */
+    font-weight: bold; /* Testo in grassetto */
+    align-self: flex-start; /* Allinea il saldo a sinistra */
+    margin-top: 10px; /* Margine superiore */
+}
+
+/* Aggiorna stili per il pulsante Ricarica */
+.recharge-button {
+    align-self: flex-end; /* Allinea il pulsante Ricarica a destra */
+    margin-top: 10px; /* Margine superiore */
+}
+
+
+
