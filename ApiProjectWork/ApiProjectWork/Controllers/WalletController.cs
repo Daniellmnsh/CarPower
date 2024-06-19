@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Data.SqlClient;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace CLOD.ProjectWork.Controllers
@@ -35,22 +34,27 @@ namespace CLOD.ProjectWork.Controllers
                     await connection.OpenAsync();
 
                     // Check if a record already exists for the user
-                    string selectQuery = "SELECT COUNT(*) FROM [dbo].[WalletCharge] WHERE [User] = @UserId";
+                    string selectQuery = "SELECT [Money] FROM [dbo].[WalletCharge] WHERE [User] = @UserId";
                     using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
                     {
                         selectCommand.Parameters.AddWithValue("@UserId", wallet.User);
-                        int existingCount = Convert.ToInt32(await selectCommand.ExecuteScalarAsync());
+                        object existingMoneyObj = await selectCommand.ExecuteScalarAsync();
 
-                        if (existingCount > 0)
+                        if (existingMoneyObj != null)
                         {
+                            // Add the new amount to the existing amount
+                            decimal existingMoney = Convert.ToDecimal(existingMoneyObj);
+                            decimal newTotalMoney = existingMoney + wallet.Money;
+
                             // Update the existing record
                             string updateQuery = "UPDATE [dbo].[WalletCharge] SET [Money] = @Money WHERE [User] = @UserId";
                             using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
                             {
                                 updateCommand.Parameters.AddWithValue("@UserId", wallet.User);
-                                updateCommand.Parameters.AddWithValue("@Money", wallet.Money);
+                                updateCommand.Parameters.AddWithValue("@Money", newTotalMoney);
 
                                 updateCommand.ExecuteNonQuery();
+                                wallet.Money = newTotalMoney; // Update wallet object with the new total
                             }
                         }
                         else
@@ -80,19 +84,21 @@ namespace CLOD.ProjectWork.Controllers
             }
         }
 
-
-
-
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Wallet>> GetWallet(int id)
+        [HttpGet("user/{userId}")]
+        public async Task<ActionResult<Wallet>> GetWalletByUserId(string userId)
         {
+            if (string.IsNullOrEmpty(userId))
+            {
+                return Unauthorized("User is not authenticated.");
+            }
+
             using (SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 await connection.OpenAsync();
-                string query = "SELECT [Id], [User], [Money] FROM [dbo].[Wallet] WHERE [Id] = @Id";
+                string query = "SELECT [Id], [User], [Money] FROM [dbo].[WalletCharge] WHERE [User] = @UserId";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Id", id);
+                    command.Parameters.AddWithValue("@UserId", userId);
                     using (var reader = await command.ExecuteReaderAsync())
                     {
                         if (await reader.ReadAsync())

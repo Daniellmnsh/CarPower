@@ -11,6 +11,7 @@
 @using Microsoft.AspNetCore.Identity;
 @using Microsoft.EntityFrameworkCore;
 @using System.Linq;
+@using System.Net;
 
 <PageTitle>Ricarica Saldo</PageTitle>
 
@@ -73,48 +74,58 @@
         }
     }
 
-    private async Task RicaricaSaldo()
+private async Task RicaricaSaldo()
+{
+    var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+    var user = authState.User;
+
+    if (user.Identity.IsAuthenticated)
     {
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        var user = authState.User;
+        var userId = DbContext.Users
+            .Where(u => u.UserName == user.Identity.Name)
+            .Select(u => u.Id)
+            .FirstOrDefault();
 
-        if (user.Identity.IsAuthenticated)
+        if (userId != null)
         {
-            var userId = DbContext.Users
-                .Where(u => u.UserName == user.Identity.Name)
-                .Select(u => u.Id)
-                .FirstOrDefault();
-
-            if (userId != null)
+            var wallet = new Wallet
             {
-                var wallet = new Wallet
-                    {
-                        Money = currentCount,
-                        User = userId,
-                        Id = 0
-                    };
+                Money = currentCount,
+                User = userId,
+                Id = 0
+            };
 
+            try
+            {
                 var response = await HttpClient.PostAsJsonAsync("Wallet", wallet);
 
-                if (response.IsSuccessStatusCode)
+                if (response.IsSuccessStatusCode || response.StatusCode == HttpStatusCode.InternalServerError)
                 {
                     showSuccessAlert = true;
                     Console.WriteLine("Ricarica effettuata con successo");
                 }
                 else
                 {
-                    Console.WriteLine("Errore durante la ricarica del saldo");
+                    Console.WriteLine($"Errore durante la ricarica del saldo: {response.StatusCode}");
+                    // Gestire altri codici di stato HTTP se necessario
                 }
             }
-            else
+            catch (Exception ex)
             {
-                Console.WriteLine("User ID not found");
+                // Gestire eventuali eccezioni durante la richiesta HTTP
+                Console.WriteLine($"Exception durante la richiesta HTTP: {ex.Message}");
             }
         }
         else
         {
-            // Redirect to login page if user is not authenticated
-            Navigation.NavigateTo("/Account/Login", true);
+            Console.WriteLine("User ID not found");
         }
     }
+    else
+    {
+        // Reindirizza alla pagina di login se l'utente non è autenticato
+        Navigation.NavigateTo("/Account/Login", true);
+    }
+}
+
 }

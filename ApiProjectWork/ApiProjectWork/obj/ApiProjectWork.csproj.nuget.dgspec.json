@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\DOTTOR\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj": {}
+    "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj": {}
   },
   "projects": {
-    "C:\\DOTTOR\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj": {
+    "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DOTTOR\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj",
+        "projectUniqueName": "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj",
         "projectName": "ApiProjectWork",
-        "projectPath": "C:\\DOTTOR\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj",
+        "projectPath": "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj",
         "packagesPath": "C:\\Users\\edoni\\.nuget\\packages\\",
-        "outputPath": "C:\\DOTTOR\\ApiProjectWork\\ApiProjectWork\\obj\\",
+        "outputPath": "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

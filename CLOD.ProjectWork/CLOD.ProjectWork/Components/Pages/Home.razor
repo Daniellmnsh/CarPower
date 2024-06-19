@@ -1,24 +1,23 @@
 ﻿@page "/"
-
 @using Microsoft.AspNetCore.Components.Authorization
 @using CLOD.ProjectWork.Data
 @using Microsoft.AspNetCore.Identity
 @using System.Security.Claims
+@using CLOD.ProjectWork.Entities;
 @inject UserManager<ApplicationUser> UserManager
 @inject NavigationManager Navigation
 @inject AuthenticationStateProvider AuthenticationStateProvider
+@inject ApplicationDbContext DbContext  // Inject ApplicationDbContext
+@inject HttpClient Http // Inietta HttpClient
 
 <PageTitle>Home</PageTitle>
 
-@if (isAuthenticated)
-{
     <div class="container text-center">
         <div class="header d-flex align-items-center justify-content-between">
             <div class="logo-balance">
                 <img src="img/EcoCharge.png" alt="Gruppo 4" class="logo" />
                 <div class="balance">€ <span style="font-size: 2.5rem; font-weight: bold;">@balance</span></div>
             </div>
-            @* <button class="btn btn-primary recharge-button" @onclick="StartRecharge">Ricarica</button> *@
             <button class="btn btn-outline-primary recharge-button" @onclick="StartRecharge">Ricarica</button>
         </div>
         <br />
@@ -35,24 +34,10 @@
             <button class="btn btn-primary w-100" @onclick="NavigateToCollegati">COLLEGATI</button>
         </div>
     </div>
-}
-else
-{
-    <h1>Redirecting...</h1>
-}
-
-
-
-
-
-
-
 
 @code {
     private bool isAuthenticated;
     private ApplicationUser currentUser;
-    private string Name;
-    private string Surname;
     private decimal balance;
 
     protected override async Task OnInitializedAsync()
@@ -67,25 +52,43 @@ else
         }
         else
         {
-            // User authenticated, load the user data
-            isAuthenticated = true;
-            var userId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var userId = DbContext.Users
+                .Where(u => u.UserName == user.Identity.Name)
+                .Select(u => u.Id)
+                .FirstOrDefault();
 
             if (userId != null)
             {
                 currentUser = await UserManager.FindByIdAsync(userId);
-                Name = currentUser?.Name ?? user.Identity.Name;
-                Surname = currentUser?.Surname ?? string.Empty;
-                await LoadUserBalance();
+                await LoadUserBalance(userId);
+                isAuthenticated = true;
             }
         }
     }
 
-    private async Task LoadUserBalance()
+    private async Task LoadUserBalance(string userId)
     {
-        // Simulate fetching the user's balance from an API or database
-        await Task.Delay(500); // Simulated delay
-        balance = 0.50M; // Replace with actual logic to get the user's balance
+        try
+        {
+            var response = await Http.GetAsync($"/Wallet/user/{userId}");
+            response.EnsureSuccessStatusCode();
+
+            var wallet = await response.Content.ReadFromJsonAsync<Wallet>();
+            if (wallet != null)
+            {
+                balance = wallet.Money;
+            }
+            else
+            {
+                balance = 0.00M;
+            }
+        }
+        catch (Exception ex)
+        {
+            // Handle the exception (e.g., log it, show a message to the user)
+            Console.WriteLine($"Error fetching user balance: {ex.Message}");
+            balance = 0.00M;
+        }
     }
 
     private void StartRecharge()
