@@ -1,63 +1,82 @@
 ﻿@page "/collegati"
+@inject NavigationManager Navigation
 
 <PageTitle>Collegamento</PageTitle>
 
-<h1>Weather</h1>
+<h1>Seleziona il numero di KW</h1>
 
-<p>This component demonstrates showing data.</p>
+<div class="form-group">
+    <label for="kwDropdown">Seleziona KW:</label>
+    <select class="form-control" id="kwDropdown" @onchange="OnKWSelectionChanged">
+        <option value="custom">Seleziona manualmente...</option>
+        <option value="5">5 KW</option>
+        <option value="10">10 KW</option>
+        <option value="20">20 KW</option>
+        <option value="30">30 KW</option>
+        <option value="40">40 KW</option>
+        <option value="50">50 KW</option>
+    </select>
+</div>
 
-@if (forecasts == null)
+@if (showCustomKW)
 {
-    <p><em>Loading...</em></p>
+    <div class="form-group">
+        <label for="customKW">Inserisci KW manualmente:</label>
+        <input type="number" class="form-control" id="customKW" @bind="selectedCustomKW" />
+    </div>
 }
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in forecasts)
-            {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+
+<h1>Seleziona la colonnina</h1>
+
+<div class="map">
+    <div class="column-container">
+        <div class="column" @onclick="() => SelectColumn(1)" :class="columnSelected == 1 ? 'selected' : ''">Colonnina 1</div>
+        <div class="column" @onclick="() => SelectColumn(2)" :class="columnSelected == 2 ? 'selected' : ''">Colonnina 2</div>
+        <div class="column" @onclick="() => SelectColumn(3)" :class="columnSelected == 3 ? 'selected' : ''">Colonnina 3</div>
+        <div class="column" @onclick="() => SelectColumn(4)" :class="columnSelected == 4 ? 'selected' : ''">Colonnina 4</div>
+        <div class="column" @onclick="() => SelectColumn(5)" :class="columnSelected == 5 ? 'selected' : ''">Colonnina 5</div>
+    </div>
+</div>
+
+<button class="btn btn-primary" @onclick="NavigateToRifornimento">Seleziona</button>
 
 @code {
-    private WeatherForecast[]? forecasts;
+    private bool showCustomKW = false;
+    private int selectedCustomKW = 0;
+    private int columnSelected = 0;
 
-    protected override async Task OnInitializedAsync()
+    private void OnKWSelectionChanged(ChangeEventArgs e)
     {
-        // Simulate asynchronous loading to demonstrate a loading indicator
-        await Task.Delay(500);
-
-        var startDate = DateOnly.FromDateTime(DateTime.Now);
-        var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
-        forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        var selectedValue = e.Value?.ToString();
+        if (selectedValue == "custom")
         {
-            Date = startDate.AddDays(index),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = summaries[Random.Shared.Next(summaries.Length)]
-        }).ToArray();
+            showCustomKW = true;
+        }
+        else
+        {
+            showCustomKW = false;
+            if (int.TryParse(selectedValue, out int kw))
+            {
+                selectedCustomKW = kw;
+            }
+        }
     }
 
-    private class WeatherForecast
+    private void SelectColumn(int columnNumber)
     {
-        public DateOnly Date { get; set; }
-        public int TemperatureC { get; set; }
-        public string? Summary { get; set; }
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+        columnSelected = columnNumber;
+    }
+
+    private void NavigateToRifornimento()
+    {
+        if (columnSelected > 0 && (selectedCustomKW > 0 || selectedCustomKW == 0 && !showCustomKW))
+        {
+            Navigation.NavigateTo($"/rifornimento?column={columnSelected}&kw={(showCustomKW ? selectedCustomKW.ToString() : selectedCustomKW.ToString())}");
+        }
+        else
+        {
+            // Mostra un avviso o gestisci il caso in cui non siano selezionati KW o colonnine
+            Console.WriteLine("Seleziona KW e colonnina prima di procedere.");
+        }
     }
 }
