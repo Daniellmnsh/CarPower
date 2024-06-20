@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="CLOD.ProjectWork.styles.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <HeadOutlet />
+</head>
+
+<body>
+    <app>
+        <component type="typeof(App)" render-mode="Interactive" />
+    </app>
+
+    <script src="_framework/blazor.webassembly.js"></script>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Custom JS file -->
+    <script src="js/site.js"></script>
+</body>
+
+</html>

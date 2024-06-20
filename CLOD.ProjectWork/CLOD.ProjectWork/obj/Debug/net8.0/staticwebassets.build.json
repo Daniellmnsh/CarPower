@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Mib4wbrQ5VLJ6dOuCiCqpYJvzOM1RpGEpZjsY+gEdtM=",
+  "Hash": "pcV9b20ZIIAGQMf4XwETHKGdFkbkJe6g+1i7YFswlQw=",
   "Source": "CLOD.ProjectWork",
   "BasePath": "_content/CLOD.ProjectWork",
   "Mode": "Default",
@@ -148,6 +148,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\EcoCharge.png"
+    },
+    {
+      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\index.html",
+      "SourceId": "CLOD.ProjectWork",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "BasePath": "_content/CLOD.ProjectWork",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\js\\site.js",
+      "SourceId": "CLOD.ProjectWork",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "BasePath": "_content/CLOD.ProjectWork",
+      "RelativePath": "js/site.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\site.js"
     }
   ]
 }

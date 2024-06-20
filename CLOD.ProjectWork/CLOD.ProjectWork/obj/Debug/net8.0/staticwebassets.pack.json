@@ -25,6 +25,14 @@
       "PackagePath": "staticwebassets\\img\\EcoCharge.png"
     },
     {
+      "Id": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CLOD.ProjectWork.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

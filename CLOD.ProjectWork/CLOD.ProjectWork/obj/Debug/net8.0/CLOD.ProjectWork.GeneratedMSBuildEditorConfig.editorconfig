@@ -178,6 +178,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBdXRoLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/DOTTOR/repository_projectwork/CarPower/CLOD.ProjectWork/CLOD.ProjectWork/Components/Pages/Collegati.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb2xsZWdhdGkucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/DOTTOR/repository_projectwork/CarPower/CLOD.ProjectWork/CLOD.ProjectWork/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -188,10 +192,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/DOTTOR/repository_projectwork/CarPower/CLOD.ProjectWork/CLOD.ProjectWork/Components/Pages/Ricarica.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSaWNhcmljYS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/DOTTOR/repository_projectwork/CarPower/CLOD.ProjectWork/CLOD.ProjectWork/Components/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/DOTTOR/repository_projectwork/CarPower/CLOD.ProjectWork/CLOD.ProjectWork/Components/Routes.razor]

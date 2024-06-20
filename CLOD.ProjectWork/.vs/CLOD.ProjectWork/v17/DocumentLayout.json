@@ -1,0 +1,190 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|c:\\dottor\\repository_projectwork\\carpower\\clod.projectwork\\clod.projectwork\\components\\pages\\collegati.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|solutionrelative:clod.projectwork\\components\\pages\\collegati.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|c:\\dottor\\repository_projectwork\\carpower\\clod.projectwork\\clod.projectwork\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|solutionrelative:clod.projectwork\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|c:\\dottor\\repository_projectwork\\carpower\\clod.projectwork\\clod.projectwork\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|solutionrelative:clod.projectwork\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|c:\\dottor\\repository_projectwork\\carpower\\clod.projectwork\\clod.projectwork\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|solutionrelative:clod.projectwork\\components\\app.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|c:\\dottor\\repository_projectwork\\carpower\\clod.projectwork\\clod.projectwork\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|solutionrelative:clod.projectwork\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|c:\\dottor\\repository_projectwork\\carpower\\clod.projectwork\\clod.projectwork\\components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|solutionrelative:clod.projectwork\\components\\pages\\error.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|c:\\dottor\\repository_projectwork\\carpower\\clod.projectwork\\clod.projectwork\\components\\pages\\auth.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|solutionrelative:clod.projectwork\\components\\pages\\auth.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|c:\\dottor\\repository_projectwork\\carpower\\clod.projectwork\\clod.projectwork\\components\\pages\\ricarica.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|solutionrelative:clod.projectwork\\components\\pages\\ricarica.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|c:\\dottor\\repository_projectwork\\carpower\\clod.projectwork\\clod.projectwork\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|solutionrelative:clod.projectwork\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|c:\\dottor\\repository_projectwork\\carpower\\clod.projectwork\\clod.projectwork\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D8F8A6D1-034E-48D8-B3D7-8BB972DE0949}|CLOD.ProjectWork\\CLOD.ProjectWork.csproj|solutionrelative:clod.projectwork\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "CLOD.ProjectWork\\wwwroot\\index.html",
+              "ToolTip": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\index.html",
+              "RelativeToolTip": "CLOD.ProjectWork\\wwwroot\\index.html",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAiwBwAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-06-19T15:31:59.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Error.razor",
+              "DocumentMoniker": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\Components\\Pages\\Error.razor",
+              "RelativeDocumentMoniker": "CLOD.ProjectWork\\Components\\Pages\\Error.razor",
+              "ToolTip": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\Components\\Pages\\Error.razor",
+              "RelativeToolTip": "CLOD.ProjectWork\\Components\\Pages\\Error.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-19T15:24:04.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Auth.razor",
+              "DocumentMoniker": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\Components\\Pages\\Auth.razor",
+              "RelativeDocumentMoniker": "CLOD.ProjectWork\\Components\\Pages\\Auth.razor",
+              "ToolTip": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\Components\\Pages\\Auth.razor",
+              "RelativeToolTip": "CLOD.ProjectWork\\Components\\Pages\\Auth.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-19T15:24:01.483Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "CLOD.ProjectWork\\Components\\_Imports.razor",
+              "ToolTip": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\Components\\_Imports.razor",
+              "RelativeToolTip": "CLOD.ProjectWork\\Components\\_Imports.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-19T15:21:19.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.razor",
+              "DocumentMoniker": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\Components\\App.razor",
+              "RelativeDocumentMoniker": "CLOD.ProjectWork\\Components\\App.razor",
+              "ToolTip": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\Components\\App.razor",
+              "RelativeToolTip": "CLOD.ProjectWork\\Components\\App.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-19T15:21:17.621Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Routes.razor",
+              "DocumentMoniker": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\Components\\Routes.razor",
+              "RelativeDocumentMoniker": "CLOD.ProjectWork\\Components\\Routes.razor",
+              "ToolTip": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\Components\\Routes.razor",
+              "RelativeToolTip": "CLOD.ProjectWork\\Components\\Routes.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-19T15:21:15.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "CLOD.ProjectWork\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "CLOD.ProjectWork\\wwwroot\\js\\site.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-06-19T15:13:55.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Collegati.razor",
+              "DocumentMoniker": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\Components\\Pages\\Collegati.razor",
+              "RelativeDocumentMoniker": "CLOD.ProjectWork\\Components\\Pages\\Collegati.razor",
+              "ToolTip": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\Components\\Pages\\Collegati.razor",
+              "RelativeToolTip": "CLOD.ProjectWork\\Components\\Pages\\Collegati.razor",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAABMAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-19T15:04:50.802Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "CLOD.ProjectWork\\Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "CLOD.ProjectWork\\Components\\Pages\\Home.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-19T15:04:47.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Ricarica.razor",
+              "DocumentMoniker": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\Components\\Pages\\Ricarica.razor",
+              "RelativeDocumentMoniker": "CLOD.ProjectWork\\Components\\Pages\\Ricarica.razor",
+              "ToolTip": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\Components\\Pages\\Ricarica.razor",
+              "RelativeToolTip": "CLOD.ProjectWork\\Components\\Pages\\Ricarica.razor",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-19T15:04:37.114Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
