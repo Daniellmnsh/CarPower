@@ -6,6 +6,6 @@ namespace CLOD.ProjectWork.Data
 {
     public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : IdentityDbContext<ApplicationUser>(options)
     {
-        public DbSet<Wallet> Wallets { get; set; } // Aggiungi questa linea per configurare Wallet come DbSet nel contesto
+        public DbSet<ApplicationUser> Wallets { get; set; } // Aggiungi questa linea per configurare Wallet come DbSet nel contesto
     }
 }
