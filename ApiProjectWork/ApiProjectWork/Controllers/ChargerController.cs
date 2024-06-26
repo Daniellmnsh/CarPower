@@ -61,6 +61,79 @@ namespace ApiProjectWork.Controllers
             }
         }
 
+        [HttpPost("Post")]
+        public async Task<ActionResult> AddChargingStation([FromBody] ChargingStation newStation)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+                {
+                    await connection.OpenAsync();
+
+                    string query = @"
+                INSERT INTO [dbo].[Controller] 
+                ([Address], [Longitude], [Latitude], [IsActive], [HasFastCharge], [KwPrice]) 
+                VALUES 
+                (@Address, @Longitude, @Latitude, @IsActive, @HasFastCharge, @KwPrice);
+                SELECT SCOPE_IDENTITY();";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Address", newStation.Address);
+                        command.Parameters.AddWithValue("@Longitude", newStation.Longitude);
+                        command.Parameters.AddWithValue("@Latitude", newStation.Latitude);
+                        command.Parameters.AddWithValue("@IsActive", newStation.IsActive);
+                        command.Parameters.AddWithValue("@HasFastCharge", newStation.HasFastCharge);
+                        command.Parameters.AddWithValue("@KwPrice", newStation.KwPrice);
+
+                        // Execute the command and get the ID of the newly inserted record
+                        var result = await command.ExecuteScalarAsync();
+                        newStation.Id = Convert.ToInt32(result);
+                    }
+                }
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        [HttpPut("Update/{userId}")]
+        public async Task<ActionResult<ChargingStation>> UpdateActive([FromBody] bool isActive, int userId)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+                {
+                    await connection.OpenAsync();
+
+                    string query = @"
+               UPDATE [dbo].[Controller] 
+                SET [IsActive] = @isActive 
+                WHERE [ID] = @userId;";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@isActive", isActive);
+                        command.Parameters.AddWithValue("@userId", userId);
+
+
+                        // Execute the command and get the ID of the newly inserted record
+                        var result = await command.ExecuteScalarAsync();
+
+                    }
+                }
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<ChargingStation>> GetChargingStationById(int id)
         {

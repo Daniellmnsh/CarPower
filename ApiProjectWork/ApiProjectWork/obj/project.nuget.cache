@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "am0Zr49+IV6DoSnw12RUYwOnafM0sstk7KKK6N5nzDS5wrUZOVl08O/4uWnSNLt5KBZ7TQSEsxQId6BMevVveg==",
+  "dgSpecHash": "5t3bF2hdQ6g5HXO/M86EwwTgjNSeax5lJ9BhRXZPYMwOVv7lNyGirjIAOZhJbUtJfkiepBN2GA7non2n6e/B0w==",
   "success": true,
   "projectFilePath": "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj",
   "expectedPackageFiles": [
@@ -18,8 +18,11 @@
     "C:\\Users\\edoni\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
     "C:\\Users\\edoni\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
     "C:\\Users\\edoni\\.nuget\\packages\\system.data.sqlclient\\4.8.6\\system.data.sqlclient.4.8.6.nupkg.sha512",
+    "C:\\Users\\edoni\\.nuget\\packages\\system.net.http.json\\8.0.0\\system.net.http.json.8.0.0.nupkg.sha512",
     "C:\\Users\\edoni\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
-    "C:\\Users\\edoni\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512"
+    "C:\\Users\\edoni\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
+    "C:\\Users\\edoni\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\edoni\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

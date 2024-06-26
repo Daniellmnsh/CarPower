@@ -1,6 +1,8 @@
 ﻿@page "/startcharge/{id}"
 @inject NavigationManager Navigation
 @inject HttpClient HttpClient
+@inject Data.ApplicationDbContext DbContext  // Inject ApplicationDbContext
+@inject AuthenticationStateProvider AuthenticationStateProvider
 @using CLOD.ProjectWork.Entities
 
 <PageTitle>Start Charge</PageTitle>
@@ -11,7 +13,6 @@
     <div class="form-group">
         <label for="kwSelect">Seleziona kW:</label>
         <select class="form-control" id="kwSelect" @onchange="HandleKwChange">
-            <option value="5">5 kW</option>
             <option value="10">10 kW</option>
             <option value="20">20 kW</option>
             <option value="30">30 kW</option>
@@ -41,7 +42,7 @@
     }
 
     <div class="mt-4">
-        <button class="btn btn-primary btn-lg mr-2" @onclick="ShowConfirmationModal">START</button>
+        <button class="btn btn-primary btn-lg mr-2" @onclick="ShowConfirmationModal" disabled="@IsCharging">START</button>
         <button class="btn btn-secondary btn-lg" @onclick="GoToHome">Torna alla Home</button>
     </div>
 
@@ -75,6 +76,10 @@
                 <span class="sr-only"></span>
             </div>
         </div>
+
+        <div class="text-center mt-4">
+            <button class="btn btn-danger btn-lg" @onclick="StopCharging">STOP</button>
+        </div>
     }
 
     @if (CurrentKw > 0)
@@ -92,7 +97,7 @@
     [Parameter]
     public string Id { get; set; }
 
-    private string SelectedKw { get; set; } = "10"; // Default to 10 kW
+    private string SelectedKw { get; set; }
     private string CustomKw { get; set; }
     private ChargingStation SelectedStation;
     private bool ShowModal { get; set; }
@@ -143,13 +148,29 @@
             IsCharging = true; // Mostra lo spinner che indica il caricamento in corso
             CurrentKw = 0; // Resetta i kW attualmente caricati
 
-            int chargingTimeInSeconds = int.Parse(SelectedKw); // Tempo di caricamento in secondi basato sui kW selezionati
+            HideConfirmationModal(); // Chiudi il modal dopo aver tentato di avviare il caricamento
+
+            int chargingTimeInSeconds;
+            if (SelectedKw == "custom")
+            {
+                if (!int.TryParse(CustomKw, out chargingTimeInSeconds))
+                {
+                    throw new ArgumentException("Il valore dei kW personalizzato non è valido.");
+                }
+            }
+            else
+            {
+                chargingTimeInSeconds = int.Parse(SelectedKw); // Tempo di caricamento in secondi basato sui kW selezionati
+            }
+
             chargingTimer = new System.Timers.Timer();
             chargingTimer.Interval = 1000; // Update every second
             chargingTimer.Elapsed += ChargingTimer_Elapsed;
             chargingTimer.Start();
 
             await Task.Delay(chargingTimeInSeconds * 1000); // Simula il caricamento per il tempo corretto in base ai kW
+
+            await CreateTransactionAndDeductFromWallet(chargingTimeInSeconds); // Crea la transazione e addebita dal wallet
 
             CompleteCharging();
         }
@@ -160,16 +181,102 @@
         finally
         {
             IsCharging = false; // Nascondi lo spinner
-            HideConfirmationModal(); // Chiudi il modal dopo aver tentato di avviare il caricamento
+        }
+    }
+
+    private async Task CreateTransactionAndDeductFromWallet(int kwUsed)
+    {
+        try
+        {
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            var user = authState.User;
+
+            if (user.Identity.IsAuthenticated)
+            {
+                // Recupera l'ID dell'utente
+                var userId = DbContext.Users
+                    .Where(u => u.UserName == user.Identity.Name)
+                    .Select(u => u.Id)
+                    .FirstOrDefault();
+
+                // Calcola il costo totale basato su KwUsage e KwPrice
+                decimal kwPrice = SelectedStation.KwPrice; // Prendi il prezzo del kilowatt dalla stazione selezionata
+                decimal totalMoney = kwUsed * kwPrice; // Calcola il costo totale
+
+                // Costruisci l'oggetto Transaction
+                var transaction = new Transaction
+                {
+                    ControllerId = SelectedStation.Id,
+                    UserId = userId, // Assicurati che userId sia stato correttamente recuperato
+                    KwUsage = kwUsed,
+                    Date = DateTime.UtcNow,
+                    TotalMoney = totalMoney
+                };
+
+                // Effettua una richiesta POST per creare la transazione
+                HttpResponseMessage transactionResponse = await HttpClient.PostAsJsonAsync("api/Transaction", transaction);
+
+                // Controlla se lo status code è 200 o 500
+                if (transactionResponse.IsSuccessStatusCode || transactionResponse.StatusCode == System.Net.HttpStatusCode.InternalServerError)
+                {
+                    // Effettua una richiesta PUT per addebitare il costo dal portafoglio dell'utente
+                    HttpResponseMessage walletResponse = await HttpClient.PutAsync($"api/Wallet/{userId}/deduct/{totalMoney}", null);
+
+                    // Controlla se lo status code è 200 o 500
+                    if (walletResponse.IsSuccessStatusCode || walletResponse.StatusCode == System.Net.HttpStatusCode.InternalServerError)
+                    {
+                        Console.WriteLine("Ricarica effettuata con successo.");
+                    }
+                    else
+                    {
+                        walletResponse.EnsureSuccessStatusCode(); // Solleva un'eccezione per altri status code di errore
+                    }
+                }
+                else
+                {
+                    transactionResponse.EnsureSuccessStatusCode(); // Solleva un'eccezione per altri status code di errore
+                }
+            }
+            else
+            {
+                // Gestione nel caso in cui l'utente non sia autenticato
+                throw new UnauthorizedAccessException("L'utente non è autenticato.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Errore durante la creazione della transazione o addebito dal wallet: {ex.Message}");
+            throw;
         }
     }
 
     private void ChargingTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
     {
-        if (CurrentKw < int.Parse(SelectedKw))
+        int targetKw;
+
+        if (SelectedKw == "custom")
+        {
+            // Se SelectedKw è "custom", usiamo CustomKw
+            if (!int.TryParse(CustomKw, out targetKw))
+            {
+                Console.WriteLine("Valore personalizzato dei kW non valido.");
+                return;
+            }
+        }
+        else
+        {
+            // Altrimenti, SelectedKw dovrebbe essere un numero valido
+            if (!int.TryParse(SelectedKw, out targetKw))
+            {
+                Console.WriteLine("Valore dei kW non valido.");
+                return;
+            }
+        }
+
+        if (CurrentKw < targetKw)
         {
             CurrentKw += 1; // Simula un aumento di 1 kW ogni secondo
-            ProgressPercentage = (double)CurrentKw / int.Parse(SelectedKw) * 360; // Calcola la percentuale di progresso in gradi
+            ProgressPercentage = (double)CurrentKw / targetKw * 360; // Calcola la percentuale di progresso in gradi
         }
         else
         {
@@ -186,7 +293,6 @@
             chargingTimer.Stop();
         }
 
-        CurrentKw = int.Parse(SelectedKw); // Imposta i kW attuali ai kW massimi selezionati
         ProgressPercentage = 360; // Imposta il progresso al 100% quando il caricamento è completo (360 gradi per un cerchio completo)
         InvokeAsync(StateHasChanged);
     }
@@ -194,16 +300,29 @@
     private void HandleKwChange(ChangeEventArgs e)
     {
         SelectedKw = e.Value.ToString();
-        if (SelectedKw == "custom")
+        if (SelectedKw != "custom")
         {
-            CustomKw = ""; // Clear custom kW input if previously set
+            CustomKw = "";
         }
-        ResetCharge(); // Resetta lo stato del caricamento quando cambia la selezione dei kW
+        ResetCharge();
     }
 
     private void ResetCharge()
     {
         CurrentKw = 0;
         ProgressPercentage = 0;
+    }
+
+    private void StopCharging()
+    {
+        if (chargingTimer != null)
+        {
+            chargingTimer.Stop();
+            chargingTimer.Dispose();
+        }
+
+        IsCharging = false;
+
+        InvokeAsync(StateHasChanged);
     }
 }
