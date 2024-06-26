@@ -7,6 +7,14 @@
       "RelativeMoniker": "D:0:0:{E3BD3F24-0BBF-4DB2-97ED-2F28B03C9330}|ApiProjectWork\\ApiProjectWork.csproj|solutionrelative:apiprojectwork\\controllers\\chargercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{E3BD3F24-0BBF-4DB2-97ED-2F28B03C9330}|ApiProjectWork\\ApiProjectWork.csproj|c:\\dottor\\repository_projectwork\\carpower\\apiprojectwork\\apiprojectwork\\entities\\chargingstation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3BD3F24-0BBF-4DB2-97ED-2F28B03C9330}|ApiProjectWork\\ApiProjectWork.csproj|solutionrelative:apiprojectwork\\entities\\chargingstation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3BD3F24-0BBF-4DB2-97ED-2F28B03C9330}|ApiProjectWork\\ApiProjectWork.csproj|c:\\dottor\\repository_projectwork\\carpower\\apiprojectwork\\apiprojectwork\\entities\\wallet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3BD3F24-0BBF-4DB2-97ED-2F28B03C9330}|ApiProjectWork\\ApiProjectWork.csproj|solutionrelative:apiprojectwork\\entities\\wallet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E3BD3F24-0BBF-4DB2-97ED-2F28B03C9330}|ApiProjectWork\\ApiProjectWork.csproj|c:\\dottor\\repository_projectwork\\carpower\\apiprojectwork\\apiprojectwork\\controllers\\walletcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E3BD3F24-0BBF-4DB2-97ED-2F28B03C9330}|ApiProjectWork\\ApiProjectWork.csproj|solutionrelative:apiprojectwork\\controllers\\walletcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -18,8 +26,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ChargingStation.cs",
+              "DocumentMoniker": "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\Entities\\ChargingStation.cs",
+              "RelativeDocumentMoniker": "ApiProjectWork\\Entities\\ChargingStation.cs",
+              "ToolTip": "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\Entities\\ChargingStation.cs",
+              "RelativeToolTip": "ApiProjectWork\\Entities\\ChargingStation.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-20T10:57:21.535Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Wallet.cs",
+              "DocumentMoniker": "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\Entities\\Wallet.cs",
+              "RelativeDocumentMoniker": "ApiProjectWork\\Entities\\Wallet.cs",
+              "ToolTip": "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\Entities\\Wallet.cs",
+              "RelativeToolTip": "ApiProjectWork\\Entities\\Wallet.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-20T10:57:04.851Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,23 +60,22 @@
               "RelativeDocumentMoniker": "ApiProjectWork\\Controllers\\ChargerController.cs",
               "ToolTip": "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\Controllers\\ChargerController.cs",
               "RelativeToolTip": "ApiProjectWork\\Controllers\\ChargerController.cs",
-              "ViewState": "AQIAADIAAAAAAAAAAAAhwEIAAAAYAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-19T15:36:44.195Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "WalletController.cs",
               "DocumentMoniker": "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\Controllers\\WalletController.cs",
               "RelativeDocumentMoniker": "ApiProjectWork\\Controllers\\WalletController.cs",
               "ToolTip": "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\Controllers\\WalletController.cs",
               "RelativeToolTip": "ApiProjectWork\\Controllers\\WalletController.cs",
-              "ViewState": "AQIAAFkAAAAAAAAAAAAAwG0AAAA8AAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAASwBcAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-19T15:04:19.901Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-19T15:04:19.901Z"
             }
           ]
         }

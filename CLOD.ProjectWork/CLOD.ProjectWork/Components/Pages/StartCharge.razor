@@ -1,0 +1,209 @@
+﻿@page "/startcharge/{id}"
+@inject NavigationManager Navigation
+@inject HttpClient HttpClient
+@using CLOD.ProjectWork.Entities
+
+<PageTitle>Start Charge</PageTitle>
+
+<h1 class="mb-4">Start Charge</h1>
+
+<div class="card p-4 mb-4">
+    <div class="form-group">
+        <label for="kwSelect">Seleziona kW:</label>
+        <select class="form-control" id="kwSelect" @onchange="HandleKwChange">
+            <option value="5">5 kW</option>
+            <option value="10">10 kW</option>
+            <option value="20">20 kW</option>
+            <option value="30">30 kW</option>
+            <option value="40">40 kW</option>
+            <option value="50">50 kW</option>
+            <option value="custom">Kw Personalizzato</option>
+        </select>
+    </div>
+
+    @if (SelectedKw == "custom")
+    {
+        <div class="form-group">
+            <label for="customKw">Inserisci kW personalizzato:</label>
+            <input class="form-control" id="customKw" @bind="CustomKw" />
+        </div>
+    }
+
+    @if (SelectedStation != null)
+    {
+        <div class="mt-4">
+            <h3 class="mb-3">Dettagli colonnina selezionata</h3>
+            <div class="card bg-light p-3">
+                <h5>@SelectedStation.Address</h5>
+                <!-- Add more details of the station if necessary -->
+            </div>
+        </div>
+    }
+
+    <div class="mt-4">
+        <button class="btn btn-primary btn-lg mr-2" @onclick="ShowConfirmationModal">START</button>
+        <button class="btn btn-secondary btn-lg" @onclick="GoToHome">Torna alla Home</button>
+    </div>
+
+    @if (ShowModal)
+    {
+        <div class="modal d-block position-fixed" style="top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1050;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Conferma Avvio Carica</h5>
+                        <button type="button" class="close" aria-label="Close" @onclick="HideConfirmationModal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Sei sicuro di voler avviare la carica a @SelectedStation.Address con @SelectedKw kW?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" @onclick="HideConfirmationModal">Annulla</button>
+                        <button type="button" class="btn btn-primary" @onclick="ConfirmStart">Avvia Carica</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (IsCharging)
+    {
+        <div class="text-center mt-4">
+            <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+    }
+
+    @if (CurrentKw > 0)
+    {
+        <div class="text-center mt-4">
+            <h5>Stato della carica</h5>
+            <div class="progress-circle" style="--progress: @ProgressPercentage%;">
+                <div class="progress-circle-value">@CurrentKw kW</div>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public string Id { get; set; }
+
+    private string SelectedKw { get; set; } = "10"; // Default to 10 kW
+    private string CustomKw { get; set; }
+    private ChargingStation SelectedStation;
+    private bool ShowModal { get; set; }
+    private int CurrentKw { get; set; } = 0;
+    private bool IsCharging { get; set; } = false;
+    private double ProgressPercentage { get; set; } = 0;
+    private System.Timers.Timer chargingTimer;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (!string.IsNullOrEmpty(Id))
+        {
+            // Retrieve charging station details by Id from the server
+            try
+            {
+                SelectedStation = await HttpClient.GetFromJsonAsync<ChargingStation>($"api/ChargingStations/{Id}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error retrieving charging station with ID {Id}: {ex.Message}");
+            }
+        }
+        else
+        {
+            Navigation.NavigateTo("/", true); // Redirect to home if Id is null or empty
+        }
+    }
+
+    private void GoToHome()
+    {
+        Navigation.NavigateTo("/", true); // Navigate to home without reloading the page
+    }
+
+    private void ShowConfirmationModal()
+    {
+        ShowModal = true;
+    }
+
+    private void HideConfirmationModal()
+    {
+        ShowModal = false;
+    }
+
+    private async Task ConfirmStart()
+    {
+        try
+        {
+            IsCharging = true; // Mostra lo spinner che indica il caricamento in corso
+            CurrentKw = 0; // Resetta i kW attualmente caricati
+
+            int chargingTimeInSeconds = int.Parse(SelectedKw); // Tempo di caricamento in secondi basato sui kW selezionati
+            chargingTimer = new System.Timers.Timer();
+            chargingTimer.Interval = 1000; // Update every second
+            chargingTimer.Elapsed += ChargingTimer_Elapsed;
+            chargingTimer.Start();
+
+            await Task.Delay(chargingTimeInSeconds * 1000); // Simula il caricamento per il tempo corretto in base ai kW
+
+            CompleteCharging();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Errore durante l'avvio del caricamento: {ex.Message}");
+        }
+        finally
+        {
+            IsCharging = false; // Nascondi lo spinner
+            HideConfirmationModal(); // Chiudi il modal dopo aver tentato di avviare il caricamento
+        }
+    }
+
+    private void ChargingTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+    {
+        if (CurrentKw < int.Parse(SelectedKw))
+        {
+            CurrentKw += 1; // Simula un aumento di 1 kW ogni secondo
+            ProgressPercentage = (double)CurrentKw / int.Parse(SelectedKw) * 360; // Calcola la percentuale di progresso in gradi
+        }
+        else
+        {
+            CompleteCharging();
+        }
+
+        InvokeAsync(StateHasChanged);
+    }
+
+    private void CompleteCharging()
+    {
+        if (chargingTimer != null)
+        {
+            chargingTimer.Stop();
+        }
+
+        CurrentKw = int.Parse(SelectedKw); // Imposta i kW attuali ai kW massimi selezionati
+        ProgressPercentage = 360; // Imposta il progresso al 100% quando il caricamento è completo (360 gradi per un cerchio completo)
+        InvokeAsync(StateHasChanged);
+    }
+
+    private void HandleKwChange(ChangeEventArgs e)
+    {
+        SelectedKw = e.Value.ToString();
+        if (SelectedKw == "custom")
+        {
+            CustomKw = ""; // Clear custom kW input if previously set
+        }
+        ResetCharge(); // Resetta lo stato del caricamento quando cambia la selezione dei kW
+    }
+
+    private void ResetCharge()
+    {
+        CurrentKw = 0;
+        ProgressPercentage = 0;
+    }
+}

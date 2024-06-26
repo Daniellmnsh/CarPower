@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pcV9b20ZIIAGQMf4XwETHKGdFkbkJe6g+1i7YFswlQw=",
+  "Hash": "dzY8Icf9dUVtl6kx0M92V890QqICgC5LylxfMRgUntc=",
   "Source": "CLOD.ProjectWork",
   "BasePath": "_content/CLOD.ProjectWork",
   "Mode": "Default",
@@ -112,6 +112,25 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\css\\app.css",
+      "SourceId": "CLOD.ProjectWork",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "BasePath": "_content/CLOD.ProjectWork",
+      "RelativePath": "css/app.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\app.css"
+    },
+    {
       "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\favicon.png",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
@@ -169,6 +188,25 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
+      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\js\\scripts.js",
+      "SourceId": "CLOD.ProjectWork",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "BasePath": "_content/CLOD.ProjectWork",
+      "RelativePath": "js/scripts.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\scripts.js"
+    },
+    {
       "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\js\\site.js",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
@@ -186,6 +224,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\edoni\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\dist\\matBlazor.css",
+      "SourceId": "MatBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\edoni\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\",
+      "BasePath": "_content/MatBlazor",
+      "RelativePath": "dist/matBlazor.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\edoni\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\dist\\matBlazor.css"
+    },
+    {
+      "Identity": "C:\\Users\\edoni\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\dist\\matBlazor.js",
+      "SourceId": "MatBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\edoni\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\",
+      "BasePath": "_content/MatBlazor",
+      "RelativePath": "dist/matBlazor.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\edoni\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\dist\\matBlazor.js"
     }
   ]
 }

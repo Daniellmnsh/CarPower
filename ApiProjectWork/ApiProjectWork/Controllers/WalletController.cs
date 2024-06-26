@@ -34,7 +34,7 @@ namespace CLOD.ProjectWork.Controllers
                     await connection.OpenAsync();
 
                     // Check if a record already exists for the user
-                    string selectQuery = "SELECT [Money] FROM [dbo].[WalletCharge] WHERE [User] = @UserId";
+                    string selectQuery = "SELECT [Money] FROM [dbo].[Wallet] WHERE [User] = @UserId";
                     using (SqlCommand selectCommand = new SqlCommand(selectQuery, connection))
                     {
                         selectCommand.Parameters.AddWithValue("@UserId", wallet.User);
@@ -47,7 +47,7 @@ namespace CLOD.ProjectWork.Controllers
                             decimal newTotalMoney = existingMoney + wallet.Money;
 
                             // Update the existing record
-                            string updateQuery = "UPDATE [dbo].[WalletCharge] SET [Money] = @Money WHERE [User] = @UserId";
+                            string updateQuery = "UPDATE [dbo].[Wallet] SET [Money] = @Money WHERE [User] = @UserId";
                             using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
                             {
                                 updateCommand.Parameters.AddWithValue("@UserId", wallet.User);
@@ -60,7 +60,7 @@ namespace CLOD.ProjectWork.Controllers
                         else
                         {
                             // Insert a new record if no existing record found
-                            string insertQuery = "INSERT INTO [dbo].[WalletCharge] ([User], [Money]) VALUES (@UserId, @Money); SELECT SCOPE_IDENTITY();";
+                            string insertQuery = "INSERT INTO [dbo].[Wallet] ([User], [Money]) VALUES (@UserId, @Money); SELECT SCOPE_IDENTITY();";
                             using (SqlCommand insertCommand = new SqlCommand(insertQuery, connection))
                             {
                                 insertCommand.Parameters.AddWithValue("@UserId", wallet.User);
@@ -95,7 +95,7 @@ namespace CLOD.ProjectWork.Controllers
             using (SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
                 await connection.OpenAsync();
-                string query = "SELECT [Id], [User], [Money] FROM [dbo].[WalletCharge] WHERE [User] = @UserId";
+                string query = "SELECT [Id], [User], [Money] FROM [dbo].[Wallet] WHERE [User] = @UserId";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@UserId", userId);

@@ -4,41 +4,25 @@
 @using Microsoft.AspNetCore.Identity
 @using System.Security.Claims
 @using CLOD.ProjectWork.Entities;
+@inject HttpClient HttpClient
 @inject UserManager<ApplicationUser> UserManager
 @inject NavigationManager Navigation
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject ApplicationDbContext DbContext  // Inject ApplicationDbContext
-@inject HttpClient Http // Inietta HttpClient
+@inject IJSRuntime JSRuntime
 
 <PageTitle>Home</PageTitle>
 
-    <div class="container text-center">
-        <div class="header d-flex align-items-center justify-content-between">
-            <div class="logo-balance">
-                <img src="img/EcoCharge.png" alt="Gruppo 4" class="logo" />
-                <div class="balance">€ <span style="font-size: 2.5rem; font-weight: bold;">@balance</span></div>
-            </div>
-            <button class="btn btn-outline-primary recharge-button" @onclick="StartRecharge">Ricarica</button>
-        </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <div class="footer mt-auto">
-            <button class="btn btn-primary w-100" @onclick="NavigateToCollegati">COLLEGATI</button>
-        </div>
-    </div>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<div id="map" style="height: 700px;"></div>
 
 @code {
+    private List<ChargingStation> chargingStations = new List<ChargingStation>();
+
     private bool isAuthenticated;
     private ApplicationUser currentUser;
-    private decimal balance;
 
     protected override async Task OnInitializedAsync()
     {
@@ -60,44 +44,29 @@
             if (userId != null)
             {
                 currentUser = await UserManager.FindByIdAsync(userId);
-                await LoadUserBalance(userId);
+                //await LoadUserBalance(userId);
                 isAuthenticated = true;
             }
         }
     }
 
-    private async Task LoadUserBalance(string userId)
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        try
+        if (firstRender)
         {
-            var response = await Http.GetAsync($"/Wallet/user/{userId}");
-            response.EnsureSuccessStatusCode();
-
-            var wallet = await response.Content.ReadFromJsonAsync<Wallet>();
-            if (wallet != null)
-            {
-                balance = wallet.Money;
-            }
-            else
-            {
-                balance = 0.00M;
-            }
-        }
-        catch (Exception ex)
-        {
-            // Handle the exception (e.g., log it, show a message to the user)
-            Console.WriteLine($"Error fetching user balance: {ex.Message}");
-            balance = 0.00M;
+            chargingStations = await HttpClient.GetFromJsonAsync<List<ChargingStation>>("api/ChargingStations");
+            await JSRuntime.InvokeVoidAsync("initializeMap", chargingStations);
         }
     }
 
-    private void StartRecharge()
+    public class ChargingStation
     {
-        Navigation.NavigateTo("/ricarica");
-    }
-
-    private void NavigateToCollegati()
-    {
-        Navigation.NavigateTo("/collegati");
+        public int Id { get; set; }
+        public string Address { get; set; }
+        public double Longitude { get; set; }
+        public double Latitude { get; set; }
+        public bool IsActive { get; set; }
+        public bool HasFastCharge { get; set; }
+        public decimal KwPrice { get; set; }
     }
 }
