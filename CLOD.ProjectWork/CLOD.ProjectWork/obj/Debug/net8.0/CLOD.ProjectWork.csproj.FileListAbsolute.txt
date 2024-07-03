@@ -443,6 +443,7 @@ C:\DOTTOR\repository_projectwork\CarPower\CLOD.ProjectWork\CLOD.ProjectWork\bin\
 C:\DOTTOR\repository_projectwork\CarPower\CLOD.ProjectWork\CLOD.ProjectWork\bin\Debug\net8.0\Azure.Core.dll
 C:\DOTTOR\repository_projectwork\CarPower\CLOD.ProjectWork\CLOD.ProjectWork\bin\Debug\net8.0\Azure.Identity.dll
 C:\DOTTOR\repository_projectwork\CarPower\CLOD.ProjectWork\CLOD.ProjectWork\bin\Debug\net8.0\Humanizer.dll
+C:\DOTTOR\repository_projectwork\CarPower\CLOD.ProjectWork\CLOD.ProjectWork\bin\Debug\net8.0\MatBlazor.dll
 C:\DOTTOR\repository_projectwork\CarPower\CLOD.ProjectWork\CLOD.ProjectWork\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\DOTTOR\repository_projectwork\CarPower\CLOD.ProjectWork\CLOD.ProjectWork\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\DOTTOR\repository_projectwork\CarPower\CLOD.ProjectWork\CLOD.ProjectWork\bin\Debug\net8.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
@@ -581,4 +582,3 @@ C:\DOTTOR\repository_projectwork\CarPower\CLOD.ProjectWork\CLOD.ProjectWork\obj\
 C:\DOTTOR\repository_projectwork\CarPower\CLOD.ProjectWork\CLOD.ProjectWork\obj\Debug\net8.0\CLOD.ProjectWork.pdb
 C:\DOTTOR\repository_projectwork\CarPower\CLOD.ProjectWork\CLOD.ProjectWork\obj\Debug\net8.0\CLOD.ProjectWork.genruntimeconfig.cache
 C:\DOTTOR\repository_projectwork\CarPower\CLOD.ProjectWork\CLOD.ProjectWork\obj\Debug\net8.0\ref\CLOD.ProjectWork.dll
-C:\DOTTOR\repository_projectwork\CarPower\CLOD.ProjectWork\CLOD.ProjectWork\bin\Debug\net8.0\MatBlazor.dll

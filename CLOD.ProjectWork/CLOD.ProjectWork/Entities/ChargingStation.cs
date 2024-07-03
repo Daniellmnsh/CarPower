@@ -11,4 +11,10 @@
         public bool HasFastCharge { get; set; }
         public decimal KwPrice { get; set; }
     }
+
+    public class NominatimResult
+    {
+        public string Lat { get; set; }
+        public string Lon { get; set; }
+    }
 }

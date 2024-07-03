@@ -1,0 +1,89 @@
+﻿@page "/adduser"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+@using CLOD.ProjectWork.Entities
+@using System.Net.Http.Json
+
+<h3>Aggiungi Utente</h3>
+
+@if (!string.IsNullOrEmpty(successMessage))
+{
+    <div class="alert alert-success" role="alert">
+        @successMessage
+    </div>
+}
+
+<EditForm Model="newUser" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <InputText id="name" class="form-control" @bind-Value="newUser.Name" />
+    </div>
+    <div class="form-group">
+        <label for="surname">Surname</label>
+        <InputText id="surname" class="form-control" @bind-Value="newUser.Surname" />
+    </div>
+    <div class="form-group">
+        <label for="plate">Plate</label>
+        <InputText id="plate" class="form-control" @bind-Value="newUser.Plate" />
+    </div>
+    <div class="form-group">
+        <label for="isAdmin">Is Admin</label>
+        <div>
+            <input type="checkbox" id="isAdmin" @bind="newUser.IsAdmin" class="form-check-input" />
+            <label class="form-check-label" for="isAdmin">
+                <i class="far fa-check-circle" style="color: @(newUser.IsAdmin ? "green" : "gray")"></i>
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <InputText id="email" class="form-control" @bind-Value="newUser.Email" />
+    </div>
+    <div class="form-group">
+        <label for="phone">Phone</label>
+        <InputText id="phone" class="form-control" @bind-Value="newUser.Phone" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-secondary" @onclick="Cancel">Cancel</button>
+</EditForm>
+
+@code {
+    private User newUser = new User();
+    private string successMessage;
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            var response = await Http.PostAsJsonAsync("api/User/Post", newUser);
+
+            if (response.IsSuccessStatusCode)
+            {
+                successMessage = "Inserimento della colonnina effettuato con successo!";
+                StateHasChanged();
+
+                await Task.Delay(3000);
+
+                Navigation.NavigateTo("/gestionecolonnine");
+            }
+            else
+            {
+                Console.WriteLine("Errore durante l'inserimento della colonnina: " + response.ReasonPhrase);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Errore durante l'inserimento della colonnina: {ex.Message}");
+        }
+    }
+
+
+    private void Cancel()
+    {
+        Navigation.NavigateTo("/gestioneutenti");
+    }
+}

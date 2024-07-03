@@ -100,8 +100,8 @@ namespace ApiProjectWork.Controllers
             }
         }
 
-        [HttpPut("Update/{userId}")]
-        public async Task<ActionResult<ChargingStation>> UpdateActive([FromBody] bool isActive, int userId)
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateChargingStation(int id, [FromBody] ChargingStation updatedStation)
         {
             try
             {
@@ -111,18 +111,53 @@ namespace ApiProjectWork.Controllers
 
                     string query = @"
                UPDATE [dbo].[Controller] 
-                SET [IsActive] = @isActive 
-                WHERE [ID] = @userId;";
+               SET [Address] = @Address, 
+                   [Longitude] = @Longitude, 
+                   [Latitude] = @Latitude,
+                   [IsActive] = @IsActive,
+                   [HasFastCharge] = @HasFastCharge,
+                   [KwPrice] = @KwPrice
+               WHERE [Id] = @id;";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@isActive", isActive);
-                        command.Parameters.AddWithValue("@userId", userId);
+                        command.Parameters.AddWithValue("@id", id);
+                        command.Parameters.AddWithValue("@Address", updatedStation.Address);
+                        command.Parameters.AddWithValue("@Longitude", updatedStation.Longitude);
+                        command.Parameters.AddWithValue("@Latitude", updatedStation.Latitude);
+                        command.Parameters.AddWithValue("@IsActive", updatedStation.IsActive);
+                        command.Parameters.AddWithValue("@HasFastCharge", updatedStation.HasFastCharge);
+                        command.Parameters.AddWithValue("@KwPrice", updatedStation.KwPrice);
+
+                        await command.ExecuteNonQueryAsync();
+                    }
+                }
+
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
 
 
-                        // Execute the command and get the ID of the newly inserted record
-                        var result = await command.ExecuteScalarAsync();
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteChargingStation(int id)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+                {
+                    await connection.OpenAsync();
 
+                    string query = "DELETE FROM [dbo].[Controller] WHERE [Id] = @id;";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", id);
+
+                        await command.ExecuteNonQueryAsync();
                     }
                 }
 
@@ -182,5 +217,4 @@ namespace ApiProjectWork.Controllers
             }
         }
     }
-
 }

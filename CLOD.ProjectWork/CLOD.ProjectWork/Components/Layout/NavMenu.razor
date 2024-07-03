@@ -1,6 +1,8 @@
 ﻿@implements IDisposable
-
 @inject NavigationManager NavigationManager
+@using CLOD.ProjectWork.Data
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject Data.ApplicationDbContext DbContext  // Inject ApplicationDbContext
 
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
@@ -12,7 +14,6 @@
 
 <div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
     <nav class="flex-column">
-
         <AuthorizeView>
             <Authorized>
                 <div class="nav-item px-3">
@@ -27,11 +28,20 @@
                     </NavLink>
                 </div>
 
-@*                 <div class="nav-item px-3">
-                    <NavLink class="nav-link" href="auth">
-                        <span class="bi bi-lock-nav-menu" aria-hidden="true"></span> Auth Required
-                    </NavLink>
-                </div> *@
+                @if (isAdmin)
+                {
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="gestionecolonnine">
+                            <span class="bi bi-lock-nav-menu" aria-hidden="true"></span> Gestione Colonnine
+                        </NavLink>
+                    </div>
+                    <div class="nav-item px-3">
+                        <NavLink class="nav-link" href="gestioneutenti">
+                            <span class="bi bi-lock-nav-menu" aria-hidden="true"></span> Gestione Utenti
+                        </NavLink>
+                    </div>
+                }
+
                 <div class="nav-item px-3">
                     <NavLink class="nav-link" href="Account/Manage">
                         <span class="bi bi-person-fill-nav-menu" aria-hidden="true"></span> Account
@@ -60,11 +70,28 @@
 
 @code {
     private string? currentUrl;
+    private bool isAdmin;
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
         NavigationManager.LocationChanged += OnLocationChanged;
+
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            var appUser = DbContext.Users
+                .OfType<ApplicationUser>()
+                .Where(u => u.UserName == user.Identity.Name)
+                .FirstOrDefault();
+
+            if (appUser != null)
+            {
+                isAdmin = appUser.IsAdmin;
+            }
+        }
     }
 
     private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
@@ -78,4 +105,3 @@
         NavigationManager.LocationChanged -= OnLocationChanged;
     }
 }
-

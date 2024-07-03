@@ -1,20 +1,32 @@
 using CLOD.ProjectWork.Components;
 using CLOD.ProjectWork.Components.Account;
 using CLOD.ProjectWork.Data;
+using Humanizer.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using CLOD.ProjectWork.Services;
+using CLOD.ProjectWork.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Configura il servizio HttpClient
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.Configuration["BaseUrl"]) });
+
+// Configurazione del servizio di invio email
+builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
+builder.Services.AddTransient<IEmailSender, EmailSender>();
 
 // Aggiungi i servizi per le pagine Razor e i componenti interattivi del server
 builder.Services.AddRazorComponents()

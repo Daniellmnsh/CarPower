@@ -1,0 +1,214 @@
+﻿@page "/gestionecolonnine"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+@using CLOD.ProjectWork.Entities
+
+<div class="mb-3"></div>
+
+<button class="btn btn-primary" @onclick="AddNewStation">Aggiungi colonnina</button>
+
+<div class="mb-3"></div>
+
+@if (chargingStations == null)
+{
+    <p class="text-center">Loading...</p>
+}
+else
+{
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">INDIRIZZO</th>
+                <th scope="col">LONGITUDINE</th>
+                <th scope="col">LATITUDINE</th>
+                <th scope="col">STATUS</th>
+                <th scope="col">FAST CHARGE</th>
+                <th scope="col">PREZZO/KW</th>
+                <th scope="col">ELIMINA</th>
+                <th scope="col">AZIONI</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var station in chargingStations)
+            {
+                <tr>
+                    <td>@station.Address</td>
+                    <td>@station.Longitude</td>
+                    <td>@station.Latitude</td>
+                    <td style="background-color: @(station.IsActive ? "green" : "gray"); color: white;">
+                        @(station.IsActive ? "Attiva" : "Disattiva")
+                    </td>
+                    <td>@(station.HasFastCharge ? "Si" : "No")</td>
+                    <td>@station.KwPrice</td>
+                    <td>
+                        <button class="btn btn-danger" @onclick="() => ShowDeleteModal(station)">Elimina</button>
+                    </td>
+                    <td>
+                        @if (station.IsActive)
+                        {
+                            <button class="btn btn-warning" @onclick="() => ShowConfirmationModal(station, false)">Disattiva</button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-success" @onclick="() => ShowConfirmationModal(station, true)">Attiva</button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<!-- Modal di conferma per eliminazione -->
+<div class="modal" style="display: @(ShowDeleteModalFlag ? "block" : "none")">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Conferma Eliminazione</h5>
+                <button type="button" class="close" aria-label="Close" @onclick="HideDeleteModal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Sei sicuro di voler eliminare la stazione di ricarica?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="HideDeleteModal">Annulla</button>
+                <button type="button" class="btn btn-danger" @onclick="DeleteConfirmed">Elimina</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal di conferma per attivazione/disattivazione -->
+<div class="modal" style="display: @(ShowConfirmationModalFlag ? "block" : "none")">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Conferma Operazione</h5>
+                <button type="button" class="close" aria-label="Close" @onclick="HideConfirmationModal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>@(newIsActive ? "Attivare" : "Disattivare") la stazione di ricarica?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="HideConfirmationModal">Annulla</button>
+                <button type="button" class="btn @(newIsActive ? "btn-success" : "btn-warning")" @onclick="UpdateConfirmed">@((newIsActive ? "Attiva" : "Disattiva"))</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<ChargingStation> chargingStations;
+    private ChargingStation stationToDelete;
+    private ChargingStation stationToUpdate;
+    private bool ShowDeleteModalFlag { get; set; }
+    private bool ShowConfirmationModalFlag { get; set; }
+    private bool newIsActive;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadChargingStations();
+    }
+
+    private async Task LoadChargingStations()
+    {
+        try
+        {
+            chargingStations = await Http.GetFromJsonAsync<List<ChargingStation>>("api/ChargingStations");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error loading charging stations: " + ex.Message);
+        }
+    }
+
+    private void AddNewStation()
+    {
+        Navigation.NavigateTo("/addchargingstation");
+    }
+
+    private void ShowDeleteModal(ChargingStation station)
+    {
+        stationToDelete = station;
+        ShowDeleteModalFlag = true;
+    }
+
+    private void HideDeleteModal()
+    {
+        ShowDeleteModalFlag = false;
+    }
+
+    private async Task DeleteConfirmed()
+    {
+        try
+        {
+            var response = await Http.DeleteAsync($"api/ChargingStations/{stationToDelete.Id}");
+            response.EnsureSuccessStatusCode();
+            chargingStations.RemoveAll(station => station.Id == stationToDelete.Id);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error deleting station: " + ex.Message);
+        }
+        finally
+        {
+            HideDeleteModal();
+        }
+    }
+
+    private void ShowConfirmationModal(ChargingStation station, bool isActive)
+    {
+        stationToUpdate = station;
+        newIsActive = isActive;
+        ShowConfirmationModalFlag = true;
+    }
+
+    private void HideConfirmationModal()
+    {
+        ShowConfirmationModalFlag = false;
+    }
+
+    private async Task UpdateConfirmed()
+    {
+        try
+        {
+            var updatedStation = new ChargingStation
+                {
+                    Id = stationToUpdate.Id,
+                    Address = stationToUpdate.Address,
+                    Longitude = stationToUpdate.Longitude,
+                    Latitude = stationToUpdate.Latitude,
+                    IsActive = newIsActive,
+                    HasFastCharge = stationToUpdate.HasFastCharge,
+                    KwPrice = stationToUpdate.KwPrice
+                };
+
+            var response = await Http.PutAsJsonAsync($"api/ChargingStations/{stationToUpdate.Id}", updatedStation);
+            response.EnsureSuccessStatusCode();
+
+            var returnedStation = await response.Content.ReadFromJsonAsync<ChargingStation>();
+            if (returnedStation != null)
+            {
+                var index = chargingStations.FindIndex(s => s.Id == returnedStation.Id);
+                if (index != -1)
+                {
+                    chargingStations[index] = returnedStation;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Error updating station: " + ex.Message);
+        }
+        finally
+        {
+            HideConfirmationModal();
+            // Ricarica i dati delle stazioni dopo l'aggiornamento
+            await LoadChargingStations();
+        }
+    }
+}

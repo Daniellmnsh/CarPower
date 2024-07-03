@@ -7,10 +7,15 @@
 
     // Aggiungi i marker per le colonnine di ricarica
     chargingStations.forEach(station => {
+        var isActiveClass = station.isActive ? '' : 'disabled'; // Aggiungi classe 'disabled' se la stazione non è attiva
+        var buttonDisabled = station.isActive ? '' : 'disabled="disabled"'; // Disabilita il pulsante se la stazione non è attiva
+        var buttonColor = station.isActive ? 'btn-primary' : 'btn-secondary'; // Imposta il colore del pulsante in base allo stato
+
         var popupContent = `
             <p>${station.address}</p>
             <p>Prezzo: ${station.kwPrice} €/kWh</p>
-            <button class="btn btn-primary" onclick="startCharge(${station.id})">START CHARGE</button>
+            <p>Stato: ${station.isActive ? 'Attivo' : 'Disattivo'}</p>
+            <button class="btn ${buttonColor} ${isActiveClass}" onclick="startCharge(${station.id})" ${buttonDisabled}>START CHARGE</button>
         `;
 
         var marker = L.marker([station.latitude, station.longitude]).addTo(map)
@@ -37,4 +42,3 @@ window.hideConfirmationModal = function () {
         modal.style.display = 'none';
     }
 };
-

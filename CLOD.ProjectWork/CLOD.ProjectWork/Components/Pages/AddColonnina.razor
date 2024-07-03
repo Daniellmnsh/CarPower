@@ -1,0 +1,142 @@
+﻿@page "/addchargingstation"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+@using CLOD.ProjectWork.Entities
+@using System.Net.Http.Json
+@using System.Globalization
+
+<h3>Aggiungi Colonnina</h3>
+
+@if (!string.IsNullOrEmpty(successMessage))
+{
+    <div class="alert alert-success" role="alert">
+        @successMessage
+    </div>
+}
+
+<EditForm Model="newStation" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="address">Address</label>
+        <InputText id="address" class="form-control" @bind-Value="newStation.Address" />
+        <button type="button" class="btn btn-primary mt-2" @onclick="FindCoordinates">Trova Coordinate</button>
+    </div>
+    <div class="form-group">
+        <label for="longitude">Longitude</label>
+        <InputNumber id="longitude" class="form-control" @bind-Value="newStation.Longitude" />
+    </div>
+    <div class="form-group">
+        <label for="latitude">Latitude</label>
+        <InputNumber id="latitude" class="form-control" @bind-Value="newStation.Latitude" />
+    </div>
+    <div class="form-group">
+        <label for="isActive">Is Active</label>
+        <div>
+            <input type="checkbox" id="isActive" @bind="newStation.IsActive" class="form-check-input" />
+            <label class="form-check-label" for="isActive">
+                <i class="far fa-check-circle" style="color: @(newStation.IsActive ? "green" : "gray")"></i>
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="hasFastCharge">Has Fast Charge</label>
+        <div>
+            <input type="checkbox" id="hasFastCharge" @bind="newStation.HasFastCharge" class="form-check-input" />
+            <label class="form-check-label" for="hasFastCharge">
+                <i class="far fa-check-circle" style="color: @(newStation.HasFastCharge ? "green" : "gray")"></i>
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="kwPrice">Kw Price</label>
+        <InputNumber id="kwPrice" class="form-control" @bind-Value="newStation.KwPrice" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-secondary" @onclick="Cancel">Cancel</button>
+</EditForm>
+
+@code {
+    private ChargingStation newStation = new ChargingStation();
+    private HttpClient httpClient = new HttpClient();
+    private string successMessage;
+
+    private async Task FindCoordinates()
+    {
+        try
+        {
+            var addressEncoded = Uri.EscapeDataString(newStation.Address);
+            var url = $"https://nominatim.openstreetmap.org/search?q={addressEncoded}&format=json";
+
+            // Set the User-Agent header to a custom value
+            httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("MyApp/1.0 (myemail@example.com)");
+
+            var response = await httpClient.GetFromJsonAsync<NominatimResult[]>(url);
+
+            if (response != null && response.Length > 0)
+            {
+                var firstResult = response[0];
+                newStation.Latitude = decimal.Parse(firstResult.Lat, CultureInfo.InvariantCulture);
+                newStation.Longitude = decimal.Parse(firstResult.Lon, CultureInfo.InvariantCulture);
+            }
+            else
+            {
+                Console.WriteLine("Nessuna coordinata trovata per l'indirizzo specificato.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Errore durante il recupero delle coordinate: {ex.Message}");
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        try
+        {
+            var response = await Http.PostAsJsonAsync("api/ChargingStations/Post", newStation);
+
+            if (response.IsSuccessStatusCode)
+            {
+                successMessage = "Inserimento della colonnina effettuato con successo!";
+                StateHasChanged();
+
+                await Task.Delay(3000);
+
+                Navigation.NavigateTo("/gestionecolonnine");
+            }
+            else
+            {
+                Console.WriteLine("Errore durante l'inserimento della colonnina: " + response.ReasonPhrase);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Errore durante l'inserimento della colonnina: {ex.Message}");
+        }
+    }
+
+    private void Cancel()
+    {
+        Navigation.NavigateTo("/gestionecolonnine");
+    }
+
+    public class NominatimResult
+    {
+        public string Lat { get; set; }
+        public string Lon { get; set; }
+    }
+
+    public class ChargingStation
+    {
+        public int Id { get; set; }
+        public string Address { get; set; }
+        public decimal Longitude { get; set; }
+        public decimal Latitude { get; set; }
+        public bool IsActive { get; set; }
+        public bool HasFastCharge { get; set; }
+        public decimal KwPrice { get; set; }
+    }
+}

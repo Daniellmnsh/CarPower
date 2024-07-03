@@ -56,6 +56,13 @@
                 <ValidationMessage For="() => Input.Plate" class="text-danger" />
             </div>
 
+            <!-- Phone Number -->
+            <div class="form-floating mb-3">
+                <InputText @bind-Value="Input.PhoneNumber" class="form-control" aria-required="true" placeholder="1234567890" />
+                <label for="phone">Phone Number</label>
+                <ValidationMessage For="() => Input.PhoneNumber" class="text-danger" />
+            </div>
+
             <!-- Password -->
             <div class="form-floating mb-3">
                 <InputText type="password" @bind-Value="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
@@ -105,6 +112,7 @@
         user.Name = Input.Name;
         user.Surname = Input.Surname;
         user.Plate = Input.Plate;
+        user.PhoneNumber = Input.PhoneNumber; 
 
         var result = await UserManager.CreateAsync(user, Input.Password);
 
@@ -176,6 +184,10 @@
         [Required]
         [Display(Name = "Plate")]
         public string Plate { get; set; } = "";
+
+        [Required]
+        [Display(Name = "Phone Number")]
+        public string PhoneNumber { get; set; } = "";  // Add this line
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]

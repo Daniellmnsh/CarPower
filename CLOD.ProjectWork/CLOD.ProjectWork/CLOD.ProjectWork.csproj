@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-CLOD.ProjectWork-6d4f11f1-c915-4d17-9360-6bebbcb4471f</UserSecretsId>
+	<SelfContained>false</SelfContained>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,5 +21,6 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
     <PackageReference Include="System.Security.Claims" Version="4.3.0" />
   </ItemGroup>
+
 
 </Project>

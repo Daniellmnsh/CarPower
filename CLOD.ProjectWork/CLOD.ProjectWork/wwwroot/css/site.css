@@ -1,0 +1,10 @@
+﻿/* wwwroot/css/site.css */
+.active {
+    background-color: green;
+    color: white;
+}
+
+.inactive {
+    background-color: gray;
+    color: white;
+}
