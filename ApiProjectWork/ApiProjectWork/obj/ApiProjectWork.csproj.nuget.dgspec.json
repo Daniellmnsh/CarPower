@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj": {}
+    "C:\\Users\\andre\\Source\\Repos\\CarPower\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj": {}
   },
   "projects": {
-    "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj": {
+    "C:\\Users\\andre\\Source\\Repos\\CarPower\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj",
+        "projectUniqueName": "C:\\Users\\andre\\Source\\Repos\\CarPower\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj",
         "projectName": "ApiProjectWork",
-        "projectPath": "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj",
-        "packagesPath": "C:\\Users\\edoni\\.nuget\\packages\\",
-        "outputPath": "C:\\DOTTOR\\repository_projectwork\\CarPower\\ApiProjectWork\\ApiProjectWork\\obj\\",
+        "projectPath": "C:\\Users\\andre\\Source\\Repos\\CarPower\\ApiProjectWork\\ApiProjectWork\\ApiProjectWork.csproj",
+        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\andre\\Source\\Repos\\CarPower\\ApiProjectWork\\ApiProjectWork\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\edoni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,6 +25,8 @@
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
