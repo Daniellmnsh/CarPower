@@ -9,6 +9,7 @@ namespace CLOD.ProjectWork.Data
         public string? Surname { get; set; }
         public string? Plate { get; set; }
         public bool IsAdmin { get; set; }
+        public bool IsActive { get; set; }
     }
 
 }
