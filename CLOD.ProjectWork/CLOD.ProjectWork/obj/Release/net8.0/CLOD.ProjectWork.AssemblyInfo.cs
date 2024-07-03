@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CLOD.ProjectWork")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0704bd598810fa713a2e0c9ddcb297ccea38d00")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("CLOD.ProjectWork")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CLOD.ProjectWork")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

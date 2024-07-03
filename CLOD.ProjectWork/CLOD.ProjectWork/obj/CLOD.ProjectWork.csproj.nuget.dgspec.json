@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj": {}
+    "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj": {}
   },
   "projects": {
-    "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj": {
+    "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj",
+        "projectUniqueName": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj",
         "projectName": "CLOD.ProjectWork",
-        "projectPath": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj",
-        "packagesPath": "C:\\Users\\edoni\\.nuget\\packages\\",
-        "outputPath": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\",
+        "projectPath": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\CLOD.ProjectWork.csproj",
+        "packagesPath": "C:\\Users\\othma\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\edoni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\othma\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -25,6 +25,7 @@
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,11 +38,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -96,7 +92,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

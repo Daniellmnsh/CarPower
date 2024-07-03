@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8dSOnJhgIk5Vak/N2t2Dm7LOPJL+v2rSOYgy6u9dVGY=",
+  "Hash": "OQxwqE/9ZdeGoUsSCsVhEJ6cUbZz+ZPR/386hrmv4lE=",
   "Source": "CLOD.ProjectWork",
   "BasePath": "_content/CLOD.ProjectWork",
   "Mode": "Default",
@@ -10,17 +10,55 @@
     {
       "Name": "CLOD.ProjectWork\\wwwroot",
       "Source": "CLOD.ProjectWork",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CLOD.ProjectWork.styles.css",
+      "Identity": "C:\\Users\\othma\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\dist\\matBlazor.css",
+      "SourceId": "MatBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\othma\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\",
+      "BasePath": "_content/MatBlazor",
+      "RelativePath": "dist/matBlazor.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\othma\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\dist\\matBlazor.css"
+    },
+    {
+      "Identity": "C:\\Users\\othma\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\dist\\matBlazor.js",
+      "SourceId": "MatBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\othma\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\",
+      "BasePath": "_content/MatBlazor",
+      "RelativePath": "dist/matBlazor.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\othma\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\dist\\matBlazor.js"
+    },
+    {
+      "Identity": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CLOD.ProjectWork.styles.css",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "CLOD.ProjectWork.styles.css",
       "AssetKind": "All",
@@ -33,13 +71,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CLOD.ProjectWork.styles.css"
+      "OriginalItemSpec": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CLOD.ProjectWork.styles.css"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CLOD.ProjectWork.bundle.scp.css",
+      "Identity": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CLOD.ProjectWork.bundle.scp.css",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "CLOD.ProjectWork.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +90,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CLOD.ProjectWork.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CLOD.ProjectWork.bundle.scp.css"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\app.css",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\css\\app.css",
+      "Identity": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\css\\app.css",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "css/app.css",
       "AssetKind": "All",
@@ -131,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\css\\app.css"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\css\\site.css",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -150,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\favicon.png",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -169,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\img\\EcoCharge.png",
+      "Identity": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\img\\EcoCharge.png",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "img/EcoCharge.png",
       "AssetKind": "All",
@@ -188,10 +226,10 @@
       "OriginalItemSpec": "wwwroot\\img\\EcoCharge.png"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\index.html",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -207,10 +245,10 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\js\\scripts.js",
+      "Identity": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\js\\scripts.js",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "js/scripts.js",
       "AssetKind": "All",
@@ -226,10 +264,10 @@
       "OriginalItemSpec": "wwwroot\\js\\scripts.js"
     },
     {
-      "Identity": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\js\\site.js",
       "SourceId": "CLOD.ProjectWork",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\DOTTOR\\repository_projectwork\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\othma\\Documents\\CarPower4\\CarPower\\CLOD.ProjectWork\\CLOD.ProjectWork\\wwwroot\\",
       "BasePath": "_content/CLOD.ProjectWork",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -243,44 +281,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
-    },
-    {
-      "Identity": "C:\\Users\\edoni\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\dist\\matBlazor.css",
-      "SourceId": "MatBlazor",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\edoni\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\",
-      "BasePath": "_content/MatBlazor",
-      "RelativePath": "dist/matBlazor.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\edoni\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\dist\\matBlazor.css"
-    },
-    {
-      "Identity": "C:\\Users\\edoni\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\dist\\matBlazor.js",
-      "SourceId": "MatBlazor",
-      "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\edoni\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\",
-      "BasePath": "_content/MatBlazor",
-      "RelativePath": "dist/matBlazor.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\edoni\\.nuget\\packages\\matblazor\\2.10.0\\staticwebassets\\dist\\matBlazor.js"
     }
   ]
 }
