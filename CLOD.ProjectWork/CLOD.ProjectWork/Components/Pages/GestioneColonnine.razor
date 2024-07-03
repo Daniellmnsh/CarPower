@@ -1,7 +1,22 @@
 ﻿@page "/gestionecolonnine"
 @inject HttpClient Http
 @inject NavigationManager Navigation
-@using CLOD.ProjectWork.Entities
+@inject NavigationManager Navigation
+@inject HttpClient HttpClient
+@inject Data.ApplicationDbContext DbContext  // Inject ApplicationDbContext
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject UserManager<ApplicationUser> UserManager
+@inject HttpClient HttpClient
+@using CLOD.ProjectWork.Entities;
+@using CLOD.ProjectWork.Components;
+@using CLOD.ProjectWork.Components.Account;
+@using CLOD.ProjectWork.Data;
+@using Microsoft.AspNetCore.Components.Authorization;
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.EntityFrameworkCore;
+@using System.Linq;
+@using System.Net;
+
 
 <div class="mb-3"></div>
 
@@ -24,7 +39,6 @@ else
                 <th scope="col">STATUS</th>
                 <th scope="col">FAST CHARGE</th>
                 <th scope="col">PREZZO/KW</th>
-                <th scope="col">ELIMINA</th>
                 <th scope="col">AZIONI</th>
             </tr>
         </thead>
@@ -40,9 +54,6 @@ else
                     </td>
                     <td>@(station.HasFastCharge ? "Si" : "No")</td>
                     <td>@station.KwPrice</td>
-                    <td>
-                        <button class="btn btn-danger" @onclick="() => ShowDeleteModal(station)">Elimina</button>
-                    </td>
                     <td>
                         @if (station.IsActive)
                         {
@@ -108,10 +119,36 @@ else
     private bool ShowDeleteModalFlag { get; set; }
     private bool ShowConfirmationModalFlag { get; set; }
     private bool newIsActive;
+    private bool isAuthenticated;
+    private ApplicationUser currentUser;
 
     protected override async Task OnInitializedAsync()
     {
-        await LoadChargingStations();
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (!user.Identity?.IsAuthenticated ?? true)
+        {
+            // User not authenticated, redirect to login page
+            Navigation.NavigateTo("/Account/Login", true);
+        }
+        else
+        {
+
+            await LoadChargingStations();
+
+            var userId = DbContext.Users
+                .Where(u => u.UserName == user.Identity.Name)
+                .Select(u => u.Id)
+                .FirstOrDefault();
+
+            if (userId != null)
+            {
+                currentUser = await UserManager.FindByIdAsync(userId);
+                //await LoadUserBalance(userId);
+                isAuthenticated = true;
+            }
+        }
     }
 
     private async Task LoadChargingStations()

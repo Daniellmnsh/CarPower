@@ -1,7 +1,21 @@
 ﻿@page "/addchargingstation"
 @inject HttpClient Http
 @inject NavigationManager Navigation
-@using CLOD.ProjectWork.Entities
+@inject NavigationManager Navigation
+@inject HttpClient HttpClient
+@inject Data.ApplicationDbContext DbContext  // Inject ApplicationDbContext
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject UserManager<ApplicationUser> UserManager
+@inject HttpClient HttpClient
+@using CLOD.ProjectWork.Entities;
+@using CLOD.ProjectWork.Components;
+@using CLOD.ProjectWork.Components.Account;
+@using CLOD.ProjectWork.Data;
+@using Microsoft.AspNetCore.Components.Authorization;
+@using Microsoft.AspNetCore.Identity;
+@using Microsoft.EntityFrameworkCore;
+@using System.Linq;
+@using System.Net;
 @using System.Net.Http.Json
 @using System.Globalization
 
@@ -62,6 +76,34 @@
     private ChargingStation newStation = new ChargingStation();
     private HttpClient httpClient = new HttpClient();
     private string successMessage;
+    private bool isAuthenticated;
+    private ApplicationUser currentUser;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (!user.Identity?.IsAuthenticated ?? true)
+        {
+            // User not authenticated, redirect to login page
+            Navigation.NavigateTo("/Account/Login", true);
+        }
+        else
+        {
+            var userId = DbContext.Users
+                .Where(u => u.UserName == user.Identity.Name)
+                .Select(u => u.Id)
+                .FirstOrDefault();
+
+            if (userId != null)
+            {
+                currentUser = await UserManager.FindByIdAsync(userId);
+                //await LoadUserBalance(userId);
+                isAuthenticated = true;
+            }
+        }
+    }
 
     private async Task FindCoordinates()
     {

@@ -3,6 +3,7 @@
 @inject ApplicationDbContext DbContext  // Inject ApplicationDbContext
 @inject NavigationManager Navigation  // Inject NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
+@inject UserManager<ApplicationUser> UserManager
 @using CLOD.ProjectWork.Entities;
 @using CLOD.ProjectWork.Components;
 @using CLOD.ProjectWork.Components.Account;
@@ -17,24 +18,53 @@
 
 <AuthorizeView>
     <Authorized>
-        <h1 class="text-center">Ricarica Saldo</h1>
+        <div class="container mt-5">
+            @* <h1 class="text-center">Ricarica Saldo</h1> *@
 
-        <div class="d-flex justify-content-center align-items-center mt-4">
+            @*             <div class="d-flex justify-content-center align-items-center mt-4">
             <button class="btn btn-primary mx-2" @onclick="DecrementCount">-</button>
-            <input type="number" step="0.5" class="form-control text-center mx-2" style="width: 120px; font-size: 1.5rem;" @bind="currentCount" />
+            <input type="number" step="0.5" class="form-control text-center mx-2" style="width: 120px; font-size: 1.5rem;" @bind="currentCount" @oninput="FormatAmount" />
             <button class="btn btn-primary mx-2" @onclick="IncrementCount">+</button>
-        </div>
+            </div> *@
 
-        <div class="text-center mt-3">
+            @*             <div class="text-center mt-3">
             <button class="btn btn-success" @onclick="RicaricaSaldo">Ricarica Saldo</button>
-        </div>
+            </div> *@
 
-        @if (showSuccessAlert)
-        {
-            <div class="alert alert-success mt-3" role="alert">
-                Ricarica effettuata con successo
+            <div class="mt-5">
+                <h2 class="text-center">Ricarica saldo</h2>
+                <div class="card p-4 mt-3">
+                    <div class="mb-3">
+                        <label for="cardNumber" class="form-label">Numero Carta</label>
+                        <input type="text" class="form-control" id="cardNumber" @bind="cardNumber" placeholder="1234 5678 9012 3456" @oninput="FormatCardNumber" maxlength="19" />
+                    </div>
+                    <div class="mb-3 d-flex">
+                        <div class="me-2 flex-fill">
+                            <label for="expiryDate" class="form-label">Data di Scadenza</label>
+                            <input type="text" class="form-control" id="expiryDate" @bind="expiryDate" placeholder="MM/YY" @oninput="FormatExpiryDate" maxlength="5" />
+                        </div>
+                        <div class="flex-fill">
+                            <label for="cvv" class="form-label">CVV</label>
+                            <input type="text" class="form-control" id="cvv" @bind="cvv" placeholder="123" maxlength="3" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Importo</label>
+                        <input type="number" class="form-control" id="amount" @bind="currentCount" placeholder="0.00" step="0.01" @oninput="FormatAmount" />
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary" @onclick="RicaricaSaldo">Ricarica con Carta</button>
+                    </div>
+                </div>
             </div>
-        }
+
+            @if (showSuccessAlert)
+            {
+                <div class="alert alert-success mt-3" role="alert">
+                    Ricarica effettuata con successo
+                </div>
+            }
+        </div>
     </Authorized>
     <NotAuthorized>
         @{
@@ -46,10 +76,38 @@
 @code {
     private decimal currentCount = 0;
     private bool showSuccessAlert = false;
+    private string cardNumber;
+    private string expiryDate;
+    private string cvv;
+    private decimal amount;
+
+    private bool isAuthenticated;
+    private ApplicationUser currentUser;
 
     protected override async Task OnInitializedAsync()
     {
-        AuthenticationStateProvider.AuthenticationStateChanged += OnAuthenticationStateChanged;
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (!user.Identity?.IsAuthenticated ?? true)
+        {
+            // User not authenticated, redirect to login page
+            Navigation.NavigateTo("/Account/Login", true);
+        }
+        else
+        {
+            var userId = DbContext.Users
+                .Where(u => u.UserName == user.Identity.Name)
+                .Select(u => u.Id)
+                .FirstOrDefault();
+
+            if (userId != null)
+            {
+                currentUser = await UserManager.FindByIdAsync(userId);
+                //await LoadUserBalance(userId);
+                isAuthenticated = true;
+            }
+        }
     }
 
     private void OnAuthenticationStateChanged(Task<AuthenticationState> task)
@@ -64,6 +122,7 @@
     private void IncrementCount()
     {
         currentCount += 0.5m;
+        FormatAmount();
     }
 
     private void DecrementCount()
@@ -71,61 +130,152 @@
         if (currentCount >= 0.5m)
         {
             currentCount -= 0.5m;
+            FormatAmount();
         }
     }
 
-private async Task RicaricaSaldo()
-{
-    var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-    var user = authState.User;
-
-    if (user.Identity.IsAuthenticated)
+    private async Task RicaricaSaldo()
     {
-        var userId = DbContext.Users
-            .Where(u => u.UserName == user.Identity.Name)
-            .Select(u => u.Id)
-            .FirstOrDefault();
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
 
-        if (userId != null)
+        if (user.Identity.IsAuthenticated)
         {
-            var wallet = new Wallets
-            {
-                Money = currentCount,
-                User = userId,
-                Id = 0
-            };
+            var userId = DbContext.Users
+                .Where(u => u.UserName == user.Identity.Name)
+                .Select(u => u.Id)
+                .FirstOrDefault();
 
-            try
+            if (userId != null)
             {
-                var response = await HttpClient.PostAsJsonAsync("Wallet", wallet);
+                var wallet = new Wallets
+                    {
+                        Money = currentCount,
+                        User = userId,
+                        Id = 0
+                    };
 
-                if (response.IsSuccessStatusCode || response.StatusCode == HttpStatusCode.InternalServerError)
+                try
                 {
-                    showSuccessAlert = true;
-                    Console.WriteLine("Ricarica effettuata con successo");
+                    var response = await HttpClient.PostAsJsonAsync("Wallet", wallet);
+
+                    if (response.IsSuccessStatusCode || response.StatusCode == HttpStatusCode.InternalServerError)
+                    {
+                        showSuccessAlert = true;
+                        Console.WriteLine("Ricarica effettuata con successo");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Errore durante la ricarica del saldo: {response.StatusCode}");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Console.WriteLine($"Errore durante la ricarica del saldo: {response.StatusCode}");
-                    // Gestire altri codici di stato HTTP se necessario
+                    Console.WriteLine($"Exception durante la richiesta HTTP: {ex.Message}");
                 }
             }
-            catch (Exception ex)
+            else
             {
-                // Gestire eventuali eccezioni durante la richiesta HTTP
-                Console.WriteLine($"Exception durante la richiesta HTTP: {ex.Message}");
+                Console.WriteLine("User ID not found");
             }
         }
         else
         {
-            Console.WriteLine("User ID not found");
+            Navigation.NavigateTo("/Account/Login", true);
         }
     }
-    else
-    {
-        // Reindirizza alla pagina di login se l'utente non è autenticato
-        Navigation.NavigateTo("/Account/Login", true);
-    }
-}
 
+    private async Task RicaricaConCarta()
+    {
+        if (IsValidCardData())
+        {
+            // Simula la logica di ricarica con carta di credito
+            showSuccessAlert = true;
+            Console.WriteLine("Ricarica con carta di credito effettuata con successo");
+        }
+        else
+        {
+            Console.WriteLine("Dati della carta non validi o importo non valido");
+        }
+    }
+
+    private void FormatCardNumber(ChangeEventArgs e)
+    {
+        string input = e.Value.ToString().Replace(" ", "");
+        input = string.Concat(input.Where(char.IsDigit));
+
+        if (input.Length > 16)
+        {
+            input = input.Substring(0, 16);
+        }
+
+        cardNumber = string.Join(" ", Enumerable.Range(0, input.Length / 4).Select(i => input.Substring(i * 4, 4)).ToArray());
+
+        if (input.Length % 4 != 0)
+        {
+            cardNumber += " " + input.Substring(input.Length - input.Length % 4);
+        }
+    }
+
+    private void FormatExpiryDate(ChangeEventArgs e)
+    {
+        string input = e.Value.ToString().Replace("/", "");
+        input = string.Concat(input.Where(char.IsDigit));
+
+        if (input.Length > 4)
+        {
+            input = input.Substring(0, 4);
+        }
+
+        if (input.Length >= 2)
+        {
+            expiryDate = input.Insert(2, "/");
+        }
+        else
+        {
+            expiryDate = input;
+        }
+    }
+
+    private void FormatAmount()
+    {
+        // Assicura che l'importo sia formattato con due decimali
+        if (amount > 0)
+        {
+            amount = decimal.Parse(amount.ToString("0.00"));
+        }
+
+        if (currentCount > 0)
+        {
+            currentCount = decimal.Parse(currentCount.ToString("0.00"));
+        }
+    }
+
+    private bool IsValidCardData()
+    {
+        if (string.IsNullOrEmpty(cardNumber) || string.IsNullOrEmpty(expiryDate) || string.IsNullOrEmpty(cvv) || amount <= 0)
+        {
+            return false;
+        }
+
+        // Validazione data di scadenza
+        var today = DateTime.Today;
+        if (DateTime.TryParseExact(expiryDate, "MM/yy", null, System.Globalization.DateTimeStyles.None, out var expDate))
+        {
+            expDate = new DateTime(expDate.Year, expDate.Month, 1).AddMonths(1).AddDays(-1); // Imposta l'ultimo giorno del mese
+
+            if (expDate < today)
+            {
+                Console.WriteLine("La data di scadenza è antecedente a oggi.");
+                return false;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Formato della data di scadenza non valido.");
+            return false;
+        }
+
+        return true;
+    }
 }

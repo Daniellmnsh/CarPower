@@ -3,6 +3,7 @@ using CLOD.ProjectWork.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Collections.Generic;  // Ensure this using directive is present
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 
@@ -10,7 +11,6 @@ namespace CLOD.ProjectWork.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    // [Au
     public class UserController : ControllerBase
     {
         private readonly IConfiguration _configuration;
@@ -21,7 +21,7 @@ namespace CLOD.ProjectWork.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetChargingStations()
+        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             try
             {
@@ -64,5 +64,37 @@ namespace CLOD.ProjectWork.Controllers
             }
         }
 
+        [HttpPut("MakeAdmin/{id}")]
+        public async Task<IActionResult> MakeAdmin(string id)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
+                {
+                    await connection.OpenAsync();
+
+                    string query = "UPDATE [dbo].[AspNetUsers] SET [IsAdmin] = @IsAdmin WHERE [Id] = @Id";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@IsAdmin", true);
+                        command.Parameters.AddWithValue("@Id", id);
+
+                        int rowsAffected = await command.ExecuteNonQueryAsync();
+                        if (rowsAffected > 0)
+                        {
+                            return Ok();
+                        }
+                        else
+                        {
+                            return NotFound(new { message = "User not found" });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
     }
 }
